@@ -1,11 +1,16 @@
 import os
-from pathlib import Path
 from dotenv import load_dotenv
 
-# Always load .env from the same directory as this config.py file
-config_dir = Path(__file__).parent
-env_path = config_dir / '.env'
-load_dotenv(dotenv_path=env_path)
+# Get absolute path to backend directory and .env file
+backend_dir = os.path.dirname(os.path.abspath(__file__))
+env_file = os.path.join(backend_dir, '.env')
+
+# Load .env file
+load_dotenv(dotenv_path=env_file)
+
+# Debug: print to verify
+print(f"Loading .env from: {env_file}")
+print(f"File exists: {os.path.exists(env_file)}")
 
 # API_ID: Telegram API ID from https://my.telegram.org (must be an integer).
 _api_id_raw = os.getenv("API_ID")
