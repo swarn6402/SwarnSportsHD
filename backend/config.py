@@ -1,9 +1,11 @@
-﻿import os
-
+import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from a local .env file (if present).
-load_dotenv(dotenv_path='.env')
+# Always load .env from the same directory as this config.py file
+config_dir = Path(__file__).parent
+env_path = config_dir / '.env'
+load_dotenv(dotenv_path=env_path)
 
 # API_ID: Telegram API ID from https://my.telegram.org (must be an integer).
 _api_id_raw = os.getenv("API_ID")
