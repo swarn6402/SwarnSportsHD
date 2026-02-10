@@ -3,7 +3,7 @@
 from dotenv import load_dotenv
 
 # Load environment variables from a local .env file (if present).
-load_dotenv()
+load_dotenv(dotenv_path='.env')
 
 # API_ID: Telegram API ID from https://my.telegram.org (must be an integer).
 _api_id_raw = os.getenv("API_ID")
