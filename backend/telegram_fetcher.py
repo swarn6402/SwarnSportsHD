@@ -64,7 +64,9 @@ def extract_links_from_message(message) -> list[str]:
     text = getattr(message, "text", None)
     if not text:
         return []
-    return re.findall(r"https?://[^\s]+", text)
+    raw_urls = re.findall(r"https?://[^\s]+", text)
+    # Strip trailing markdown/punctuation artifacts often attached to Telegram links.
+    return [url.rstrip("*)].,;:!?`'\"") for url in raw_urls]
 
 
 async def get_all_cricket_links() -> dict:
