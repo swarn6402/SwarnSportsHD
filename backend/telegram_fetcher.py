@@ -22,25 +22,27 @@ async def authenticate() -> TelegramClient:
 
 
 def _normalize_channel_id_for_peer(channel_id: int) -> int:
-    """Convert configured channel ID to a PeerChannel-compatible positive ID."""
-    abs_id = abs(int(channel_id))
-    abs_text = str(abs_id)
-    if abs_text.startswith("100"):
-        return int(abs_text[3:])
-    return abs_id
+    """
+    Convert negative channel ID to proper format for PeerChannel.
+    Telegram uses -100<channel_id> format for channels/supergroups.
+    We need to extract the actual channel_id part.
+    """
+    if channel_id < 0:
+        # Remove the -100 prefix that Telegram adds
+        # Example: -1002292758419 -> 2292758419
+        id_str = str(abs(channel_id))
+        if id_str.startswith("100"):
+            return int(id_str[3:])
+    return abs(channel_id)
 
 
 async def _resolve_channel_entity(client: TelegramClient, channel_id: int):
-    """
-    Resolve channel entity from config ID.
-    Tries direct get_entity first, then PeerChannel fallback for negative IDs.
-    """
-    try:
-        # Preferred path: Telethon handles most ID forms automatically.
-        return await client.get_entity(channel_id)
-    except (ValueError, TypeError):
+    """Resolve channel entity using PeerChannel for negative IDs."""
+    if channel_id < 0:
         normalized_id = _normalize_channel_id_for_peer(channel_id)
         return await client.get_entity(PeerChannel(normalized_id))
+    else:
+        return await client.get_entity(channel_id)
 
 
 async def fetch_recent_messages(client: TelegramClient, channel_id: int):
