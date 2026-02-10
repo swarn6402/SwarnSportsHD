@@ -3,17 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SwarnSports cricket streaming links aggregator" />
   <title>SwarnSports</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <h1>SwarnSports</h1>
-    <p>Cricket streaming link aggregator</p>
-    <section id="links-container">
-      <!-- TODO: Render aggregated links here -->
+  <header class="site-header">
+    <div class="header-content">
+      <h1>SwarnSports 🏏</h1>
+      <p class="subtitle">Cricket Streaming Links Aggregator</p>
+      <p class="last-updated">Last updated: <time id="last-updated">-</time></p>
+    </div>
+  </header>
+
+  <main class="content" aria-live="polite">
+    <section id="loading-state" class="state-card" role="status">
+      <p>Fetching latest links...</p>
     </section>
+
+    <section id="empty-state" class="state-card" hidden>
+      <p>No links found</p>
+    </section>
+
+    <section id="links-container" class="links-grid" aria-label="Streaming links"></section>
   </main>
+
+  <template id="link-card-template">
+    <article class="link-card">
+      <h2 class="link-url-wrap">
+        <a class="link-url" href="#" target="_blank" rel="noopener noreferrer"></a>
+      </h2>
+      <div class="meta-row">
+        <span class="source-channel"></span>
+        <time class="posted-time"></time>
+      </div>
+      <p class="message-preview"></p>
+      <button type="button" class="copy-btn">Copy</button>
+    </article>
+  </template>
+
   <script src="script.js"></script>
 </body>
 </html>
