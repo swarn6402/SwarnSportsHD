@@ -105,12 +105,11 @@ async def get_all_cricket_links() -> dict:
 
 
 def save_to_json(data: dict) -> None:
-    """Persist fetched link data to frontend/data.json."""
+    """Persist fetched link data to data.json in project root."""
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    frontend_dir = os.path.join(project_root, "frontend")
-    os.makedirs(frontend_dir, exist_ok=True)
-
-    output_path = os.path.join(frontend_dir, "data.json")
+    # Save at repo root (../data.json from backend/) instead of frontend/data.json.
+    # This avoids creating or depending on a frontend directory for output storage.
+    output_path = os.path.join(project_root, "data.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
