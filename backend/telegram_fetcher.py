@@ -8,6 +8,7 @@ import re
 
 from telethon import TelegramClient
 from telethon.errors import ChannelPrivateError
+from telethon.tl.types import PeerChannel
 
 import config
 
@@ -20,10 +21,32 @@ async def authenticate() -> TelegramClient:
     return client
 
 
+def _normalize_channel_id_for_peer(channel_id: int) -> int:
+    """Convert configured channel ID to a PeerChannel-compatible positive ID."""
+    abs_id = abs(int(channel_id))
+    abs_text = str(abs_id)
+    if abs_text.startswith("100"):
+        return int(abs_text[3:])
+    return abs_id
+
+
+async def _resolve_channel_entity(client: TelegramClient, channel_id: int):
+    """
+    Resolve channel entity from config ID.
+    Tries direct get_entity first, then PeerChannel fallback for negative IDs.
+    """
+    try:
+        # Preferred path: Telethon handles most ID forms automatically.
+        return await client.get_entity(channel_id)
+    except (ValueError, TypeError):
+        normalized_id = _normalize_channel_id_for_peer(channel_id)
+        return await client.get_entity(PeerChannel(normalized_id))
+
+
 async def fetch_recent_messages(client: TelegramClient, channel_id: int):
     """Fetch the last 100 messages from a channel, filtered to the last 24 hours."""
     try:
-        entity = await client.get_entity(channel_id)
+        entity = await _resolve_channel_entity(client, channel_id)
         messages = await client.get_messages(entity, limit=100)
 
         cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=24)
@@ -51,7 +74,7 @@ async def get_all_cricket_links() -> dict:
         for channel_id in config.CHANNELS:
             try:
                 recent_messages = await fetch_recent_messages(client, channel_id)
-                entity = await client.get_entity(channel_id)
+                entity = await _resolve_channel_entity(client, channel_id)
                 channel_name = getattr(entity, "title", str(channel_id))
 
                 for message in recent_messages:
