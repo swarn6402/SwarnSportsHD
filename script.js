@@ -210,7 +210,7 @@ function updateTimestamp(timestamp) {
     return;
   }
 
-  lastUpdatedEl.textContent = parsed.toLocaleString();
+  lastUpdatedEl.textContent = parsed.toLocaleString("en-GB");
   lastUpdatedEl.dateTime = parsed.toISOString();
 }
 
