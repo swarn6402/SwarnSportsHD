@@ -12,6 +12,12 @@ from telethon.tl.types import PeerChannel
 
 import config
 
+# Blacklist patterns for unwanted links
+URL_BLACKLIST = [
+    "t.me/+",           # Telegram invite links
+    "t.me/joinchat",    # Old style Telegram invites
+]
+
 
 async def authenticate() -> TelegramClient:
     """Create and authenticate a Telegram client session."""
@@ -60,13 +66,20 @@ async def fetch_recent_messages(client: TelegramClient, channel_id: int):
 
 
 def extract_links_from_message(message) -> list[str]:
-    """Extract URLs from a Telegram message text."""
+    """Extract URLs from a Telegram message text, filtering out unwanted links."""
     text = getattr(message, "text", None)
     if not text:
         return []
-    raw_urls = re.findall(r"https?://[^\s]+", text)
-    # Strip trailing markdown/punctuation artifacts often attached to Telegram links.
-    return [url.rstrip("*)].,;:!?`'\"") for url in raw_urls]
+    
+    urls = re.findall(r"https?://[^\s]+", text)
+    
+    # Filter out blacklisted URLs
+    filtered_urls = []
+    for url in urls:
+        if not any(pattern in url for pattern in URL_BLACKLIST):
+            filtered_urls.append(url)
+    
+    return filtered_urls
 
 
 async def get_all_cricket_links() -> dict:
