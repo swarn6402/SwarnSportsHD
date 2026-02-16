@@ -139,5 +139,4 @@ This project can be served as a static site on GitHub Pages.
 
 ## License
 
-No license file is currently included.
-Add a `LICENSE` file (for example, MIT) if you want to define reuse terms explicitly.
+This project is licensed under the MIT License — see the LICENSE file for details.
