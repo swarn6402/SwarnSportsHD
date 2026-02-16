@@ -66,20 +66,52 @@ async def fetch_recent_messages(client: TelegramClient, channel_id: int):
 
 
 def extract_links_from_message(message) -> list[str]:
-    """Extract URLs from a Telegram message text, filtering out unwanted links."""
-    text = getattr(message, "text", None)
-    if not text:
-        return []
-    
-    urls = re.findall(r"https?://[^\s]+", text)
-    
-    # Filter out blacklisted URLs
-    filtered_urls = []
-    for url in urls:
-        if not any(pattern in url for pattern in URL_BLACKLIST):
-            filtered_urls.append(url)
-    
-    return filtered_urls
+    """Extract URLs from Telegram entities and text, filtering out unwanted links."""
+    from urllib.parse import urlparse
+
+    collected_urls = []
+
+    text = getattr(message, "text", None) or ""
+    entities = getattr(message, "entities", None) or []
+    for entity in entities:
+        entity_url = getattr(entity, "url", None)
+        if entity_url:
+            collected_urls.append(entity_url)
+            continue
+
+        offset = getattr(entity, "offset", None)
+        length = getattr(entity, "length", None)
+        if (
+            isinstance(offset, int)
+            and isinstance(length, int)
+            and offset >= 0
+            and length > 0
+            and text
+        ):
+            slice_url = text[offset : offset + length]
+            # Only accept slices that resemble actual URLs.
+            if slice_url.startswith("http"):
+                collected_urls.append(slice_url)
+
+    collected_urls.extend(re.findall(r"https?://[^\s<>\"]+", text))
+
+    cleaned_urls = []
+    seen = set()
+    trailing_punctuation = ")]}>,.;:*'"
+
+    for url in collected_urls:
+        cleaned = url.rstrip(trailing_punctuation)
+        parsed = urlparse(cleaned)
+        if not (parsed.scheme and parsed.netloc):
+            continue
+        if any(pattern in cleaned for pattern in URL_BLACKLIST):
+            continue
+        if cleaned in seen:
+            continue
+        seen.add(cleaned)
+        cleaned_urls.append(cleaned)
+
+    return cleaned_urls
 
 
 async def get_all_cricket_links() -> dict:
