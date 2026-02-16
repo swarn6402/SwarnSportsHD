@@ -102,7 +102,7 @@ def extract_links_from_message(message) -> list[str]:
     for url in collected_urls:
         cleaned = url.rstrip(trailing_punctuation)
         parsed = urlparse(cleaned)
-        if not (parsed.scheme and parsed.netloc):
+        if parsed.scheme not in ("http", "https") or not parsed.netloc:
             continue
         if any(pattern in cleaned for pattern in URL_BLACKLIST):
             continue
