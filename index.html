@@ -1,31 +1,57 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="SwarnSports cricket streaming links aggregator" />
   <title>SwarnSports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-content">
-      <h1>SwarnSports 🏏</h1>
-      <p class="subtitle">Cricket Streaming Links Aggregator</p>
+      <div class="brand-block">
+        <p class="eyebrow">Cricket Streaming Hub</p>
+        <h1>SwarnSports</h1>
+        <p class="subtitle">Live Cricket Streams, Anytime</p>
+      </div>
       <p class="last-updated">Last updated: <time id="last-updated">-</time></p>
     </div>
   </header>
 
   <main class="content" aria-live="polite">
-    <section id="loading-state" class="state-card" role="status">
-      <p>Fetching latest links...</p>
+    <section class="hero-panel" aria-label="Streaming overview">
+      <div class="hero-copy">
+        <p class="hero-kicker">Matchday Ready</p>
+        <h2>Fast access to the latest cricket stream links in one clean view.</h2>
+        <p class="hero-text">
+          Browse the freshest sources, copy links quickly, and keep track of recent updates without leaving the page.
+        </p>
+      </div>
     </section>
 
-    <section id="empty-state" class="state-card" hidden>
-      <p>No links found</p>
-    </section>
+    <section class="streams-section" aria-label="Available cricket streams">
+      <div class="section-heading">
+        <h2>Available Streams</h2>
+        <p>Responsive live link cards built for quick scanning across mobile, tablet, and desktop.</p>
+      </div>
 
-    <section id="links-container" class="links-grid" aria-label="Streaming links"></section>
+      <section id="loading-state" class="state-card" role="status">
+        <p>Fetching latest links...</p>
+      </section>
+
+      <section id="empty-state" class="state-card" hidden>
+        <p>No links found</p>
+      </section>
+
+      <section id="links-container" class="links-grid" aria-label="Streaming links"></section>
+    </section>
   </main>
 
   <template id="link-card-template">
@@ -41,6 +67,10 @@
       <button type="button" class="copy-btn">Copy</button>
     </article>
   </template>
+
+  <footer class="site-footer">
+    <p>SwarnSports keeps your cricket stream links easy to find and easy to use.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
