@@ -16,6 +16,12 @@ import config
 URL_BLACKLIST = [
     "t.me/+",           # Telegram invite links
     "t.me/joinchat",    # Old style Telegram invites
+    "t.me/",            # All remaining Telegram links
+    "telegram.me/",     # Telegram links (alt domain)
+    "telegram.org/",    # Telegram official domain
+    "bit.ly",           # Common spam shortener
+    "tinyurl.com",      # Common spam shortener
+    "shorturl",         # Common spam shortener
 ]
 
 
@@ -118,6 +124,7 @@ async def get_all_cricket_links() -> dict:
     """Collect links from all configured channels in the last 24 hours."""
     client = await authenticate()
     results = []
+    seen_urls = set()
 
     try:
         for channel_id in config.CHANNELS:
@@ -128,6 +135,8 @@ async def get_all_cricket_links() -> dict:
 
                 for message in recent_messages:
                     urls = extract_links_from_message(message)
+                    urls = [u for u in urls if u not in seen_urls]
+                    seen_urls.update(urls)
                     if not urls:
                         continue
 
