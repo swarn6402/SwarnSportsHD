@@ -68,7 +68,33 @@ function createLinkCard(link, index = 0) {
   const messageText = typeof link?.message_text === "string" ? link.message_text : "";
 
   urlEl.href = url || "#";
-  urlEl.textContent = url || "Invalid URL";
+
+  let matchName = "";
+  const lines = messageText.split("\n");
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith("http")) {
+      matchName = trimmed;
+      break;
+    }
+  }
+  if (!matchName) {
+    const words = messageText.split(" ");
+    const before = [];
+    for (const word of words) {
+      if (word.startsWith("http")) break;
+      before.push(word);
+    }
+    matchName = before.join(" ").trim();
+  }
+  if (!matchName) {
+    try {
+      matchName = new URL(url).hostname;
+    } catch (_) {
+      matchName = "Unknown Match";
+    }
+  }
+  urlEl.textContent = matchName;
 
   channelEl.textContent = channelName;
   channelEl.setAttribute("title", `Channel ID: ${link?.source_channel_id ?? "N/A"}`);
@@ -77,8 +103,15 @@ function createLinkCard(link, index = 0) {
   postedTimeEl.dateTime = postedTime || "";
   postedTimeEl.title = formatAbsoluteTime(postedTime);
 
-  const preview = messageText.length > 100 ? `${messageText.slice(0, 100)}...` : messageText;
-  messageEl.textContent = preview || "No message preview available.";
+  let previewLabel = "";
+  const urlIndex = messageText.indexOf(url);
+  if (url && urlIndex !== -1) {
+    const before = messageText.slice(Math.max(0, urlIndex - 30), urlIndex);
+    const words = before.split(" ").filter(Boolean);
+    previewLabel = words.slice(-4).join(" ").trim();
+    previewLabel = previewLabel.replace(/^[.,!·•()\[\]]+|[.,!·•()\[\]]+$/g, "").trim();
+  }
+  messageEl.textContent = previewLabel;
 
   if (cardEl) {
     cardEl.style.animationDelay = `${Math.min(index * 80, 480)}ms`;
