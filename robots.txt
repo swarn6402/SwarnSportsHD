@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://swarn6402.github.io/SwarnSportsHD/sitemap.xml
