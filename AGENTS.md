@@ -36,11 +36,15 @@ no test suite.** Keep it that way unless explicitly asked otherwise.
 
 ```
 SwarnSportsHD/
-├── index.html            # Frontend markup + link-card <template>
+├── index.html            # Frontend markup + link-card <template> + hero + footer
 ├── script.js             # Frontend logic: fetch data.json, render, copy-to-clipboard
-├── style.css             # Frontend styling
+├── style.css             # Frontend styling (dark broadcast theme, blue accent)
 ├── data.json             # GENERATED output consumed by the frontend (root copy)
 ├── frontend/data.json    # Secondary copy used by deploy.sh /docs workflow
+├── robots.txt            # SEO: allow all + sitemap reference
+├── sitemap.xml           # SEO: single canonical URL entry
+├── site.webmanifest      # PWA manifest (name, icons, dark theme colors)
+├── favicon.ico           # Favicon set (also *-16/32, apple-touch, android-chrome)
 ├── update.bat            # Windows: fetch + git add/commit/push (primary workflow)
 ├── deploy.sh             # Linux/macOS: fetch + copy to docs/ + push
 ├── .env.example          # Template for credentials (safe to commit)
@@ -53,6 +57,20 @@ SwarnSportsHD/
 │   └── run_fetcher.bat       # Windows wrapper
 └── README.md             # User-facing setup/usage docs
 ```
+
+## Frontend look & feel (keep consistent)
+
+- Dark, broadcast-style theme with a **single electric-blue accent** (`--accent`
+  in `style.css`) used sparingly. Fonts via Google Fonts (`display=swap`): Plus
+  Jakarta Sans 800 for the hero `<h1>`, Space Grotesk for section headings, Inter
+  for body.
+- The hero has a `.hero-media` background photo (Unsplash) behind the title only,
+  with a dark gradient overlay and a solid-color fallback — preserve that fallback.
+- SEO/PWA lives in `<head>` (title, description, canonical, Open Graph, Twitter
+  card) plus root `robots.txt` / `sitemap.xml` / `site.webmanifest`. All asset
+  paths are **relative** so they work on the GitHub Pages subpath. If the site
+  title/description changes, update the `<title>`, `<meta name="description">`,
+  and the matching `og:`/`twitter:` tags together.
 
 ## Common tasks
 
