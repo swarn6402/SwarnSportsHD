@@ -184,8 +184,8 @@ function createToast(message) {
   toast.style.position = "fixed";
   toast.style.bottom = "20px";
   toast.style.right = "20px";
-  toast.style.background = "#2d7d46";
-  toast.style.color = "#ffffff";
+  toast.style.background = "#2563eb";
+  toast.style.color = "#eff6ff";
   toast.style.padding = "10px 14px";
   toast.style.borderRadius = "8px";
   toast.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.3)";
