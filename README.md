@@ -1,33 +1,79 @@
-# SwarnSportsHD
+<div align="center">
 
-> A Telegram-to-web cricket stream link aggregator: a Python scraper that collects links from Telegram channels into `data.json`, and a dependency-free static site that renders them.
+<img src="android-chrome-512x512.png" alt="SwarnSports logo" width="120" height="120" />
 
+# SwarnSports
+
+**Live cricket streaming links — aggregated from Telegram, served on a fast, dependency-free web page.**
+
+[![Live site](https://img.shields.io/badge/live-swarn6402.github.io-3b82f6.svg)](https://swarn6402.github.io/SwarnSportsHD/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
-[![No build step](https://img.shields.io/badge/frontend-vanilla%20JS-f7df1e.svg)](#frontend)
+[![Frontend: Vanilla JS](https://img.shields.io/badge/frontend-vanilla%20JS-f7df1e.svg)](#-frontend)
+[![No build step](https://img.shields.io/badge/build-none-brightgreen.svg)](#-frontend)
 
-## How it works
+</div>
+
+---
+
+SwarnSports is a two-part project: a **Python + Telethon scraper** that collects cricket
+stream links posted in Telegram channels into a `data.json` file, and a **static, framework-free
+web frontend** that renders those links as clean, copyable cards — auto-refreshing every few
+minutes. No build tooling, no server, no database.
+
+> **Click a link to watch. Copy a link to share.** That's the whole interaction.
+
+## ✨ Features
+
+**Frontend**
+- ⚡ **Zero build, zero framework** — hand-written HTML, CSS, and vanilla JS. Loads instantly.
+- 🎨 **Premium broadcast UI** — dark, near-black theme with a single electric-blue accent, a
+  cinematic cricket hero image, and clean modern typography (Plus Jakarta Sans / Space Grotesk / Inter).
+- 🔄 **Auto-refresh** — pulls the latest `data.json` every 5 minutes, no reload needed.
+- 📋 **One-tap copy** — copy any stream link to the clipboard with graceful fallbacks + toast feedback.
+- 📱 **Fully responsive** — 1 → 2 → 3 column grid, ≥44px tap targets, hover effects that degrade
+  gracefully to touch, and `prefers-reduced-motion` support.
+- 🔍 **SEO & PWA ready** — canonical URL, Open Graph / Twitter cards, `robots.txt`, `sitemap.xml`,
+  a web manifest, and a full favicon set.
+
+**Backend**
+- 🤖 **Telethon-powered** — reads recent messages from configured channels as an authenticated user.
+- 🧹 **Smart link extraction** — pulls URLs from message entities *and* text, validates schemes,
+  strips trailing punctuation, deduplicates globally, and blacklist-filters invite links.
+- ⏱️ **24-hour window** — keeps only fresh links (last 100 messages, filtered to the past 24h, UTC-aware).
+- 🛡️ **Per-channel resilience** — one unreachable channel never aborts the whole run.
+
+## 🌐 Live site
+
+**→ [swarn6402.github.io/SwarnSportsHD](https://swarn6402.github.io/SwarnSportsHD/)**
+
+## 🧭 How it works
 
 ```
 Telegram channels ──▶ telegram_fetcher.py ──▶ data.json ──▶ index.html (static site)
      (Telethon)          (scrape + filter)      (output)       (fetch + render)
 ```
 
-1. The backend logs into Telegram via [Telethon](https://docs.telethon.dev/), reads the last 100 messages from each configured channel, and keeps only those from the past 24 hours.
-2. It extracts `http/https` links from message entities and text, then validates, deduplicates (globally), and blacklist-filters them.
+1. The backend logs into Telegram via [Telethon](https://docs.telethon.dev/), reads the last 100
+   messages from each configured channel, and keeps only those from the past 24 hours.
+2. It extracts `http/https` links from message entities and text, then validates, deduplicates,
+   and blacklist-filters them.
 3. Results are written to `data.json` at the repository root.
 4. The static frontend fetches `data.json` and renders link cards, auto-refreshing every 5 minutes.
 
-There is **no build step, no framework, and no server** — just Python standard library + Telethon on the backend, and vanilla HTML/CSS/JS on the frontend.
+There is **no build step, no framework, and no server** — just Python standard library + Telethon
+on the backend, and vanilla HTML/CSS/JS on the frontend.
 
-## Requirements
+## 🧰 Tech stack
 
-- Python 3.8+
-- A Telegram account with API credentials (`API_ID`, `API_HASH`) from [my.telegram.org](https://my.telegram.org)
-- Git (for the publish workflow)
-- Python packages: `telethon`, `python-dotenv` (see `backend/requirements.txt`)
+| Layer      | Tools                                                                 |
+| ---------- | --------------------------------------------------------------------- |
+| Backend    | Python 3.8+, [Telethon](https://docs.telethon.dev/), python-dotenv    |
+| Frontend   | Vanilla HTML / CSS / JavaScript (no framework, no bundler)            |
+| Fonts      | Plus Jakarta Sans, Space Grotesk, Inter (Google Fonts, `display=swap`)|
+| Hosting    | GitHub Pages (static, served from repo root)                          |
 
-## Quick start
+## 🚀 Quick start
 
 ```bash
 # 1. Clone
@@ -62,7 +108,7 @@ Preview the site locally:
 python -m http.server        # then open http://localhost:8000
 ```
 
-## Configuration
+## ⚙️ Configuration
 
 All config lives in `backend/.env` and is validated on startup by `backend/config.py`:
 
@@ -75,9 +121,10 @@ All config lives in `backend/.env` and is validated on startup by `backend/confi
 
 To find channel IDs, use the helper: `python backend/get_channel_info.py`.
 
-## Data contract
+## 📄 Data contract
 
-`data.json` is **generated output** — do not edit it by hand. Any field change must be mirrored in both `backend/telegram_fetcher.py` and `script.js`.
+`data.json` is **generated output** — do not edit it by hand. Any field change must be mirrored in
+both `backend/telegram_fetcher.py` (producer) and `script.js` (consumer).
 
 ```json
 {
@@ -94,11 +141,27 @@ To find channel IDs, use the helper: `python backend/get_channel_info.py`.
 }
 ```
 
-## Publishing (GitHub Pages)
+## 🎨 Frontend
+
+The frontend is intentionally simple to host and hack on — three files, no toolchain.
+
+- **Theme:** premium dark (`#0a0a0a` base) with a single electric-blue accent (`#3b82f6`) used
+  sparingly — the live indicator, links, hover glow, the Copy button, and the card accent bar.
+- **Typography:** Plus Jakarta Sans 800 for the hero headline, Space Grotesk for section headings,
+  Inter for body and meta text — loaded in a single `display=swap` request.
+- **Hero:** a cinematic night-cricket photo sits behind the header under a dark gradient overlay,
+  with a solid-color fallback so a failed image load never breaks the layout.
+- **Motion & accessibility:** eased micro-interactions, a staggered card entrance, a pulsing live
+  dot, hover effects that fall back to tap states on touch, and full `prefers-reduced-motion` support.
+
+Editing the card layout means touching `index.html` (`#link-card-template`) + `script.js`
+(`createLinkCard`) + `style.css` together.
+
+## 📦 Publishing (GitHub Pages)
 
 The site is fully static and can be served straight from the repo.
 
-- **From root:** commit `index.html`, `style.css`, `script.js`, `data.json`, then set
+- **From root:** commit the frontend files + `data.json`, then set
   *Settings → Pages → Deploy from a branch → `main` / `(root)`*.
 - **From `/docs`:** run `deploy.sh` (copies `frontend/*` into `docs/`), then point Pages at `main` / `/docs`.
 
@@ -107,14 +170,21 @@ Convenience scripts to fetch-and-publish in one step:
 - `update.bat` — Windows: runs the scraper, then `git add data.json` + commit + push.
 - `deploy.sh` — Linux/macOS: runs the scraper, copies to `docs/`, commits, and pushes.
 
-## Project structure
+> **Note on paths:** all asset and SEO paths are **relative** (no leading `/`) so they resolve on
+> the GitHub Pages project subpath, not just at a domain root.
+
+## 🗂️ Project structure
 
 ```
 SwarnSportsHD/
-├── index.html            # Frontend markup + link-card template
-├── style.css             # Styling (dark theme, no framework)
+├── index.html            # Frontend markup + link-card template + hero + footer
+├── style.css             # Styling (dark broadcast theme, electric-blue accent)
 ├── script.js             # Fetch, render, copy, 5-min auto-refresh
 ├── data.json             # Generated output (scraper writes this)
+├── robots.txt            # SEO: allow all + sitemap reference
+├── sitemap.xml           # SEO: canonical URL
+├── site.webmanifest      # PWA manifest (name, icons, dark theme colors)
+├── favicon.ico           # + favicon-16/32, apple-touch-icon, android-chrome icons
 ├── backend/
 │   ├── telegram_fetcher.py   # Scraper: fetch, extract, filter, save
 │   ├── config.py             # Loads + validates backend/.env
@@ -124,7 +194,7 @@ SwarnSportsHD/
 └── deploy.sh             # Unix fetch + publish to /docs
 ```
 
-## Troubleshooting
+## 🩺 Troubleshooting
 
 | Message                                          | Fix                                                             |
 | ------------------------------------------------ | -------------------------------------------------------------- |
@@ -134,19 +204,33 @@ SwarnSportsHD/
 | `Malformed JSON in data.json`                     | Re-run the scraper to regenerate the file.                     |
 | Channel fetch errors                             | Confirm your account can access the channel and the ID is right. |
 
-## Security
+## 🔒 Security
 
-- `backend/.env` and `*.session` files hold live credentials and are **git-ignored** — never commit them. Only `.env.example` belongs in version control.
+- `backend/.env` and `*.session` files hold live credentials and are **git-ignored** — never commit
+  them. Only `.env.example` belongs in version control.
 - Do not share your `API_HASH`, phone number, or Telethon session file.
 
-## Contributing
+## 🤝 Contributing
 
-Issues and pull requests are welcome. Please keep the stack as-is (standard-library Python + Telethon on the backend, vanilla JS on the frontend — no npm, bundlers, or CSS frameworks) and keep the `data.json` contract in sync across backend and frontend.
+Issues and pull requests are welcome. Please keep the stack as-is — standard-library Python +
+Telethon on the backend, vanilla JS on the frontend (no npm, bundlers, or CSS frameworks) — and
+keep the `data.json` contract in sync across backend and frontend.
 
-## Disclaimer
+## 🙏 Credits
 
-This project is a tool for aggregating publicly posted links and is intended for personal and educational use. It does not host, stream, or distribute any content. Users are responsible for complying with the terms of service of Telegram and any linked services, as well as applicable copyright law.
+- Hero photograph by [Zoshua Colah](https://unsplash.com/photos/66X4NgftbrA) via
+  [Unsplash](https://unsplash.com/) (Unsplash License).
+- Fonts: [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans),
+  [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), and
+  [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts.
 
-## License
+## ⚖️ Disclaimer
+
+SwarnSportsHD does **not** host, own, or claim rights to any streams or content. All links are
+aggregated from publicly available third-party sources for convenience only. This project is
+intended for personal and educational use. Users are responsible for complying with the terms of
+service of Telegram and any linked services, as well as applicable copyright law.
+
+## 📜 License
 
 MIT — see [LICENSE](LICENSE).
