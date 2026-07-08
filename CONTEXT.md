@@ -83,10 +83,12 @@ Standalone utility. Authenticates, lists all dialogs, filters to broadcasts
 `(title, id, type)`. Use it to discover the numeric ids to put in `CHANNELS`.
 
 ### 2.4 Frontend (`index.html`, `script.js`, `style.css`)
-- `index.html` — semantic markup with a header, hero panel, a streams section
-  containing `#loading-state`, `#empty-state`, `#links-container`, and a
-  `<template id="link-card-template">` cloned per link. Loads Google Fonts and
-  `script.js`.
+- `index.html` — semantic markup with a header/hero (an absolutely-positioned
+  `.hero-media` photo layer behind the `.header-content`), a streams section
+  containing `#loading-state`, `#empty-state`, `#links-container`, a
+  `<template id="link-card-template">` cloned per link, and a footer with social
+  links (GitHub, X — inline SVG) plus a content disclaimer. The `<head>` carries
+  the SEO/PWA block (see §2.6). Loads Google Fonts and `script.js`.
 - `script.js` — no dependencies:
   - `loadLinks()` — fetches `data.json` with `cache: "no-store"`; distinguishes
     HTTP errors vs malformed JSON; shows friendly error text.
@@ -99,7 +101,45 @@ Standalone utility. Authenticates, lists all dialogs, filters to broadcasts
   - `formatRelativeTime` / `formatAbsoluteTime` — human-friendly timestamps
     (`en-GB` locale).
   - Auto-refresh: `setInterval(loadLinks, 5 * 60 * 1000)` after DOMContentLoaded.
-- `style.css` — hand-written responsive styling; dark cricket-themed palette.
+  - `createToast` uses inline styles; its background color is kept in sync with
+    the CSS `--accent` by hand (styling only — not part of the fetch/render logic).
+- `style.css` — hand-written responsive styling; premium dark broadcast theme.
+  - **Palette:** near-black background (`--bg-primary: #0a0a0a`) with a single
+    **electric-blue accent** (`--accent: #3b82f6`, plus `--accent-strong` /
+    `--accent-soft` / `--accent-glow` / `--accent-tint`) used sparingly: live dot,
+    links, hover glow, Copy CTA, card accent bar.
+  - **Type scale:** Plus Jakarta Sans 800 (hero `<h1>`, mixed case), Space Grotesk
+    (section headings), Inter (body/meta). One Google Fonts request, `display=swap`.
+  - **Hero image:** `.hero-media` paints an Unsplash night-cricket photo behind the
+    hero only, layered under a `linear-gradient` dark overlay for text legibility,
+    with a `background-color` fallback so a failed image load degrades to solid
+    dark (no broken icon, no layout shift). Photographer credited in a CSS comment.
+  - **Motion & a11y:** eased 200–300ms transitions, staggered `cardEnter`,
+    `livePulse` on the live dot; hover effects scoped to `@media (hover: hover)`
+    with `@media (hover: none)` `:active` fallbacks for touch; all animation
+    guarded by `prefers-reduced-motion`.
+  - **Responsive grid:** 1 col `<768px`, 2 cols `≥768px`, 3 cols `≥1024px`; tap
+    targets ≥44px.
+
+### 2.6 SEO & PWA assets
+- **In `<head>` (`index.html`):** one concise `<title>`, a `<meta
+  name="description">` (<160 chars), `<meta name="theme-color">`, a canonical
+  link, Open Graph (`og:type/site_name/title/description/url`) and a Twitter
+  `summary` card. **No `og:image`/`twitter:image`** — no suitable image asset
+  ships in the repo, so none is fabricated. Keep `<title>` / description / `og:`
+  / `twitter:` wording in sync when any of them changes. No JSON-LD (a link
+  aggregator isn't an accurate `SportsEvent`), no tracking scripts.
+- **Root files:** `robots.txt` (allow all + `Sitemap:` line), `sitemap.xml`
+  (single canonical URL), `site.webmanifest` (name `SwarnSports`, dark
+  `theme_color`/`background_color` `#0a0a0a`, relative icon `src`s).
+- **Favicons (root):** `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`,
+  `apple-touch-icon.png`, `android-chrome-192x192.png`,
+  `android-chrome-512x512.png`, wired via relative-path `<link>` tags.
+- **Path rule:** every asset/SEO path is **relative** (no leading `/`) so it
+  resolves on the GitHub Pages project subpath
+  (`https://swarn6402.github.io/SwarnSportsHD/`), not just at a domain root.
+- **External runtime dependencies:** Google Fonts and the Unsplash hero image are
+  the only third-party frontend requests. Intentional; don't add more casually.
 
 ### 2.5 Ops scripts
 - `update.bat` (Windows, **primary**): `cd backend` → run fetcher → `git add
@@ -202,5 +242,13 @@ network activity. Agents should not run these without explicit user approval.
 - Changing a `data.json` field → `telegram_fetcher.py` **and** `script.js`
   (+ possibly `index.html` template) together.
 - Changing the UI → `index.html` template + `script.js` render fns + `style.css`.
+- Changing the accent color / theme → `style.css` `:root` accent variables **and**
+  the inline toast color in `script.js` (+ `theme-color` / `site.webmanifest` if
+  the base dark tone changes).
+- Changing the site title/description → `<title>`, `<meta name="description">`,
+  and the matching `og:`/`twitter:` tags in `index.html` together.
+- Changing SEO/PWA assets → keep all paths **relative** for the Pages subpath;
+  touch `robots.txt` / `sitemap.xml` / `site.webmanifest` / favicon `<link>`s as
+  needed.
 - Changing deploy behavior → `update.bat` and/or `deploy.sh` (mind the two
   `data.json` copies and the Pages source setting).
