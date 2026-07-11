@@ -31,6 +31,9 @@ no test suite.** Keep it that way unless explicitly asked otherwise.
   clear justification.
 - **Do not run the fetcher without permission.** It performs a real Telegram
   login and network calls. Prefer static reasoning; ask before executing it.
+- **`SESSION_STRING` is a credential.** It's a Telethon StringSession granting
+  full account access, used only for headless/CI runs. It lives in GitHub Actions
+  secrets — never print it, commit it, or add it to `.env.example`.
 
 ## Repository map
 
@@ -48,10 +51,13 @@ SwarnSportsHD/
 ├── update.bat            # Windows: fetch + git add/commit/push (primary workflow)
 ├── deploy.sh             # Linux/macOS: fetch + copy to docs/ + push
 ├── .env.example          # Template for credentials (safe to commit)
+├── .github/workflows/
+│   └── fetch-links.yml   # Manual (workflow_dispatch) headless fetch + commit/push
 ├── backend/
 │   ├── config.py             # Loads & validates env vars from backend/.env
 │   ├── telegram_fetcher.py   # Main scraper → writes root data.json
 │   ├── get_channel_info.py   # Utility: list channel/supergroup IDs for the account
+│   ├── generate_session.py   # One-time: mint a StringSession for CI (SESSION_STRING)
 │   ├── requirements.txt      # telethon, python-dotenv
 │   ├── run_fetcher.sh        # Linux/macOS wrapper to run the fetcher
 │   └── run_fetcher.bat       # Windows wrapper
@@ -77,10 +83,11 @@ SwarnSportsHD/
 | Goal | Where to work |
 |------|---------------|
 | Change how links are scraped/filtered | `backend/telegram_fetcher.py` (`extract_links_from_message`, `URL_BLACKLIST`) |
+| Tune sport filtering (football/cricket/F1) | `backend/telegram_fetcher.py` (`_is_football_message`, `CRICKET_KEYWORDS` / `F1_KEYWORDS` / `FOOTBALL_KEYWORDS`) |
 | Add/validate a config option | `backend/config.py` |
 | Change the rendered card / UI | `index.html` (`#link-card-template`) + `script.js` (`createLinkCard`) + `style.css` |
 | Change the `data.json` shape | Backend `get_all_cricket_links` **and** frontend `displayLinks`/`createLinkCard` must stay in sync |
-| Change deploy/commit flow | `update.bat` (Windows) / `deploy.sh` (Unix) |
+| Change deploy/commit flow | `update.bat` (Windows) / `deploy.sh` (Unix) / `.github/workflows/fetch-links.yml` (headless) |
 
 ## The data contract (keep both sides in sync)
 
