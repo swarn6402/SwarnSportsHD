@@ -12,6 +12,26 @@ from telethon.tl.types import PeerChannel
 
 import config
 
+# Keyword sets for per-message sport classification. Matched case-insensitively
+# against message text. The classifier defaults to KEEPING a message: links are
+# only dropped when a message looks like football (soccer) AND carries no cricket
+# or F1 signal. This bias exists so no cricket stream is ever missed.
+CRICKET_KEYWORDS = [
+    "cricket", "t20i", "t20", "odi", " test", "test match", "ipl", "psl",
+    "cpl", "bbl", "wtc", "ranji", "willow", "fancode", "innings", "wicket",
+    "batting", "bowling", "day 1", "day 2", "day 3", "day 4", "day 5",
+    "1st test", "2nd test", "3rd test", "4th test", "5th test",
+]
+F1_KEYWORDS = [
+    "formula 1", "formula1", "f1 ", "grand prix", "qualifying", " gp ",
+    "practice session", "sprint race",
+]
+FOOTBALL_KEYWORDS = [
+    "football", "soccer", "fifa", "uefa", "epl", "premier league",
+    "la liga", "laliga", "bundesliga", "serie a", "ligue 1",
+    "champions league", "europa league", "ucl", "koora", "world cup qualifier",
+]
+
 # Blacklist patterns for unwanted links
 URL_BLACKLIST = [
     "t.me/+",           # Telegram invite links
@@ -120,6 +140,23 @@ def extract_links_from_message(message) -> list[str]:
     return cleaned_urls
 
 
+def _is_football_message(text: str) -> bool:
+    """
+    Return True only for messages that clearly advertise football (soccer)
+    streams and carry no cricket or F1 signal.
+
+    The classifier is deliberately conservative: cricket and F1 keywords act as
+    a protective allowlist, so an ambiguous or mixed message is always kept.
+    Only unambiguous football posts get filtered out.
+    """
+    lowered = text.lower()
+    if any(keyword in lowered for keyword in CRICKET_KEYWORDS):
+        return False
+    if any(keyword in lowered for keyword in F1_KEYWORDS):
+        return False
+    return any(keyword in lowered for keyword in FOOTBALL_KEYWORDS)
+
+
 async def get_all_cricket_links() -> dict:
     """Collect links from all configured channels in the last 24 hours."""
     client = await authenticate()
@@ -134,6 +171,11 @@ async def get_all_cricket_links() -> dict:
                 channel_name = getattr(entity, "title", str(channel_id))
 
                 for message in recent_messages:
+                    message_text = getattr(message, "text", "") or ""
+                    # Skip clear football posts; cricket/F1 messages fall through.
+                    if _is_football_message(message_text):
+                        continue
+
                     urls = extract_links_from_message(message)
                     urls = [u for u in urls if u not in seen_urls]
                     seen_urls.update(urls)
