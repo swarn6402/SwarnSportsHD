@@ -8,6 +8,7 @@ import re
 
 from telethon import TelegramClient
 from telethon.errors import ChannelPrivateError
+from telethon.sessions import StringSession
 from telethon.tl.types import PeerChannel
 
 import config
@@ -46,8 +47,22 @@ URL_BLACKLIST = [
 
 
 async def authenticate() -> TelegramClient:
-    """Create and authenticate a Telegram client session."""
-    client = TelegramClient("swarnsports_session", config.API_ID, config.API_HASH)
+    """
+    Create and authenticate a Telegram client session.
+
+    Two modes, chosen automatically:
+    - If ``SESSION_STRING`` is set (headless/CI, e.g. GitHub Actions), use an
+      in-memory StringSession — no login prompt, no ``.session`` file.
+    - Otherwise fall back to the on-disk ``swarnsports_session`` file used by the
+      local ``update.bat`` workflow (interactive first-time login).
+    """
+    session_string = os.getenv("SESSION_STRING")
+    if session_string:
+        session = StringSession(session_string)
+    else:
+        session = "swarnsports_session"
+
+    client = TelegramClient(session, config.API_ID, config.API_HASH)
     await client.start(phone=config.PHONE_NUMBER)
     await client.connect()
     return client
