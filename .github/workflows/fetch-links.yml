@@ -1,0 +1,47 @@
+name: Fetch Links
+
+# Manual trigger only: tap "Run workflow" from the GitHub website or the GitHub
+# mobile app. This mirrors what update.bat does locally, but headless.
+on:
+  workflow_dispatch:
+
+# Allow the job to push the updated data.json back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
+
+      - name: Fetch links
+        working-directory: backend
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+          CHANNELS: ${{ secrets.CHANNELS }}
+          SESSION_STRING: ${{ secrets.SESSION_STRING }}
+        run: python telegram_fetcher.py
+
+      - name: Commit and push updated data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data.json; then
+            echo "No changes to data.json."
+          else
+            git add data.json
+            git commit -m "Update links (via GitHub Actions)"
+            git push
+          fi
