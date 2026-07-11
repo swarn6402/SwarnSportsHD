@@ -40,8 +40,12 @@ minutes. No build tooling, no server, no database.
 - 🤖 **Telethon-powered** — reads recent messages from configured channels as an authenticated user.
 - 🧹 **Smart link extraction** — pulls URLs from message entities *and* text, validates schemes,
   strips trailing punctuation, deduplicates globally, and blacklist-filters invite links.
+- 🏏 **Sport filtering** — the same channels sometimes post football; a conservative per-message
+  classifier drops clear football posts while always keeping cricket (and letting F1 through).
 - ⏱️ **24-hour window** — keeps only fresh links (last 100 messages, filtered to the past 24h, UTC-aware).
 - 🛡️ **Per-channel resilience** — one unreachable channel never aborts the whole run.
+- 📲 **Two ways to run** — a local Windows `update.bat`, or a manual **GitHub Actions** button you
+  can tap from the GitHub mobile app (no laptop needed).
 
 ## 🌐 Live site
 
@@ -56,10 +60,14 @@ Telegram channels ──▶ telegram_fetcher.py ──▶ data.json ──▶ in
 
 1. The backend logs into Telegram via [Telethon](https://docs.telethon.dev/), reads the last 100
    messages from each configured channel, and keeps only those from the past 24 hours.
-2. It extracts `http/https` links from message entities and text, then validates, deduplicates,
-   and blacklist-filters them.
+2. It skips messages that are clearly football (cricket and F1 posts always pass), then extracts
+   `http/https` links from message entities and text, and validates, deduplicates, and
+   blacklist-filters them.
 3. Results are written to `data.json` at the repository root.
 4. The static frontend fetches `data.json` and renders link cards, auto-refreshing every 5 minutes.
+
+The fetch can be triggered locally (`update.bat`) **or** remotely by tapping *Run workflow* on the
+GitHub Actions "Fetch Links" job — handy from a phone.
 
 There is **no build step, no framework, and no server** — just Python standard library + Telethon
 on the backend, and vanilla HTML/CSS/JS on the frontend.
@@ -121,6 +129,11 @@ All config lives in `backend/.env` and is validated on startup by `backend/confi
 
 To find channel IDs, use the helper: `python backend/get_channel_info.py`.
 
+For the optional **headless / GitHub Actions** path, one extra variable is used — `SESSION_STRING`,
+a Telethon [StringSession](https://docs.telethon.dev/en/stable/concepts/sessions.html). Leave it
+unset locally (the on-disk `.session` file is used instead); set it as a GitHub **secret** for CI.
+See [Publishing](#-publishing-github-pages) below.
+
 ## 📄 Data contract
 
 `data.json` is **generated output** — do not edit it by hand. Any field change must be mirrored in
@@ -170,6 +183,26 @@ Convenience scripts to fetch-and-publish in one step:
 - `update.bat` — Windows: runs the scraper, then `git add data.json` + commit + push.
 - `deploy.sh` — Linux/macOS: runs the scraper, copies to `docs/`, commits, and pushes.
 
+### Fetching from your phone (GitHub Actions)
+
+`.github/workflows/fetch-links.yml` runs the exact same scraper on GitHub's servers, triggered
+**manually** (`workflow_dispatch`) — so you can update the site from the GitHub mobile app with no
+laptop. It installs deps, runs the fetcher using repository **secrets**, and commits/pushes
+`data.json`. There is intentionally **no schedule** — it only runs when you tap *Run workflow*.
+
+One-time setup:
+
+1. Generate a reusable login token (headless runs can't do the interactive phone-code step):
+   ```bash
+   cd backend && python generate_session.py
+   ```
+   Copy the printed `SESSION_STRING`. ⚠️ It logs in as your account — treat it like a password.
+2. In the repo, add these **Actions secrets** (*Settings → Secrets and variables → Actions*):
+   `API_ID`, `API_HASH`, `PHONE_NUMBER`, `CHANNELS` (same as your `.env`), and `SESSION_STRING`.
+3. Trigger it from *Actions → Fetch Links → Run workflow* (web or mobile app).
+
+The local `update.bat` flow is unchanged and needs no `SESSION_STRING`.
+
 > **Note on paths:** all asset and SEO paths are **relative** (no leading `/`) so they resolve on
 > the GitHub Pages project subpath, not just at a domain root.
 
@@ -185,10 +218,13 @@ SwarnSportsHD/
 ├── sitemap.xml           # SEO: canonical URL
 ├── site.webmanifest      # PWA manifest (name, icons, dark theme colors)
 ├── favicon.ico           # + favicon-16/32, apple-touch-icon, android-chrome icons
+├── .github/workflows/
+│   └── fetch-links.yml   # Manual GitHub Actions fetch (run from web/mobile)
 ├── backend/
-│   ├── telegram_fetcher.py   # Scraper: fetch, extract, filter, save
+│   ├── telegram_fetcher.py   # Scraper: fetch, sport-filter, extract, save
 │   ├── config.py             # Loads + validates backend/.env
 │   ├── get_channel_info.py   # Helper to list channel IDs
+│   ├── generate_session.py   # One-time: make a SESSION_STRING for CI
 │   └── requirements.txt
 ├── update.bat            # Windows fetch + publish
 └── deploy.sh             # Unix fetch + publish to /docs
@@ -209,6 +245,8 @@ SwarnSportsHD/
 - `backend/.env` and `*.session` files hold live credentials and are **git-ignored** — never commit
   them. Only `.env.example` belongs in version control.
 - Do not share your `API_HASH`, phone number, or Telethon session file.
+- `SESSION_STRING` is a full-access login token — store it **only** as a GitHub Actions secret,
+  never in `.env.example`, code, or logs. Regenerate it with `generate_session.py` if exposed.
 
 ## 🤝 Contributing
 
