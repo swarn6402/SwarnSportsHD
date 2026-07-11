@@ -50,8 +50,18 @@ The core scraper. Key elements:
 
 - `URL_BLACKLIST` — substrings that disqualify a URL (`t.me/+`, `t.me/joinchat`)
   to skip Telegram invite links.
-- `authenticate()` → `TelegramClient("swarnsports_session", ...)`, starts with
-  phone auth. Creates/uses a local `.session` file.
+- `CRICKET_KEYWORDS` / `F1_KEYWORDS` / `FOOTBALL_KEYWORDS` — lowercase substrings
+  for per-message sport classification (see `_is_football_message`).
+- `authenticate()` — dual-mode. If `SESSION_STRING` is set (headless/CI), it
+  builds a `StringSession` in memory (no login prompt, no `.session` file);
+  otherwise it falls back to the on-disk `TelegramClient("swarnsports_session", ...)`
+  used by `update.bat`. Either way it `start()`s with the configured phone.
+- `_is_football_message(text)` — conservative sport gate used by
+  `get_all_cricket_links`. Returns `True` (drop the message's links) **only** when
+  the text matches a football keyword **and** contains no cricket or F1 keyword.
+  Cricket/F1 keywords act as a protective allowlist, so ambiguous or mixed posts
+  are always kept — the bias is "never miss a cricket stream." F1 is intentionally
+  let through.
 - `_normalize_channel_id_for_peer(channel_id)` — converts Telegram's
   `-100XXXXXXXXXX` supergroup/channel form into the raw id for `PeerChannel`.
   Only strips the `100` prefix when the id begins with `100` after taking abs.
@@ -68,8 +78,9 @@ The core scraper. Key elements:
   4. Validates scheme ∈ {http, https} and non-empty netloc via `urlparse`.
   5. Applies `URL_BLACKLIST` and dedupes (order-preserving via a `seen` set).
 - `get_all_cricket_links()` — iterates `config.CHANNELS`, resolves each channel's
-  title, and builds one record per URL per message. Per-channel `try/except`
-  keeps one bad channel from aborting the whole run. Returns
+  title, and builds one record per URL per message. Skips messages for which
+  `_is_football_message` returns `True` before extracting links. Per-channel
+  `try/except` keeps one bad channel from aborting the whole run. Returns
   `{timestamp, links}`. Always disconnects the client in `finally`.
 - `save_to_json(data)` — writes to **repo-root** `data.json`
   (`../data.json` relative to `backend/`), `indent=2`, UTF-8. Note the inline
@@ -81,6 +92,13 @@ The core scraper. Key elements:
 Standalone utility. Authenticates, lists all dialogs, filters to broadcasts
 (Channel) and megagroups (Supergroup), and prints an ASCII table of
 `(title, id, type)`. Use it to discover the numeric ids to put in `CHANNELS`.
+
+### 2.3a `backend/generate_session.py`
+One-time helper for the headless/CI path. Logs in interactively with the
+`.env` phone (Telegram code + optional 2FA), then prints a Telethon
+`StringSession` string. The user copies that into a GitHub Actions secret named
+`SESSION_STRING`. Run locally only; never commit or log its output. Not used by
+the normal fetch flow.
 
 ### 2.4 Frontend (`index.html`, `script.js`, `style.css`)
 - `index.html` — semantic markup with a header/hero (an absolutely-positioned
@@ -149,6 +167,14 @@ Standalone utility. Authenticates, lists all dialogs, filters to broadcasts
   /docs" GitHub Pages option.
 - `backend/run_fetcher.sh` / `run_fetcher.bat`: thin wrappers to run the fetcher
   with error trapping.
+- `.github/workflows/fetch-links.yml` (GitHub Actions, **manual only**):
+  `workflow_dispatch`-triggered job (tap *Run workflow* from the web UI or GitHub
+  mobile app). Steps: checkout → set up Python 3.12 → `pip install -r
+  backend/requirements.txt` → run `telegram_fetcher.py` with `API_ID` / `API_HASH`
+  / `PHONE_NUMBER` / `CHANNELS` / `SESSION_STRING` injected from repo **secrets** →
+  commit & push `data.json` (skips the commit when unchanged). Needs `permissions:
+  contents: write`. There is intentionally **no `schedule:`** — it runs only when
+  triggered. Mirrors `update.bat`, but headless (auth via `SESSION_STRING`).
 
 ---
 
@@ -195,6 +221,14 @@ CHANNELS=-1001111111111,-1002222222222   # comma-separated channel ids
 `.env.example` is the committed template. `*.session` files are Telethon auth
 artifacts — local only, git-ignored.
 
+**Headless / CI auth:** for the GitHub Actions path there is no `.session` file,
+so authentication uses `SESSION_STRING` — a Telethon `StringSession` minted once
+via `backend/generate_session.py`. It is stored as a GitHub Actions **secret**
+(alongside `API_ID` / `API_HASH` / `PHONE_NUMBER` / `CHANNELS`), never in `.env`,
+`.env.example`, code, or logs. It grants full account access; regenerate if
+exposed. Locally `SESSION_STRING` is unset, so `authenticate()` uses the file
+session and behavior is unchanged.
+
 Dependencies (`backend/requirements.txt`): `telethon`, `python-dotenv`. Python
 3.8+.
 
@@ -209,6 +243,8 @@ Dependencies (`backend/requirements.txt`): `telethon`, `python-dotenv`. Python
 | Run scraper | `python backend/telegram_fetcher.py` |
 | Full update (Windows) | `update.bat` |
 | Full update (Unix, /docs) | `./deploy.sh` |
+| Full update (headless/phone) | GitHub → *Actions → Fetch Links → Run workflow* |
+| Mint a CI session string | `python backend/generate_session.py` (one-time) |
 | Preview frontend | `python -m http.server` in repo root, open `localhost:8000` |
 
 ⚠️ Running the scraper or channel utility triggers a **real Telegram login** and
@@ -237,8 +273,13 @@ network activity. Agents should not run these without explicit user approval.
 ## 7. Change-impact cheat sheet
 
 - Changing scrape/filter behavior → `telegram_fetcher.py` only (self-contained).
+- Tuning sport filtering → `telegram_fetcher.py` (`_is_football_message` and the
+  `CRICKET_KEYWORDS` / `F1_KEYWORDS` / `FOOTBALL_KEYWORDS` sets). Keep the
+  keep-by-default bias so cricket is never dropped.
+- Changing auth/session behavior → `authenticate()` in `telegram_fetcher.py`
+  (dual file/StringSession) and, for CI, the secrets in `fetch-links.yml`.
 - Adding a config field → `config.py` (validate it) + document in `.env.example`
-  + README.
+  + README (and add it to `fetch-links.yml` env + GitHub secrets if CI needs it).
 - Changing a `data.json` field → `telegram_fetcher.py` **and** `script.js`
   (+ possibly `index.html` template) together.
 - Changing the UI → `index.html` template + `script.js` render fns + `style.css`.
