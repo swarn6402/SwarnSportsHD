@@ -84,18 +84,18 @@ on the backend, and vanilla HTML/CSS/JS on the frontend.
 ## 🚀 Quick start
 
 ```bash
-# 1. Clone
+# 1. Clone the repository
 git clone https://github.com/swarn6402/SwarnSportsHD.git
 cd SwarnSportsHD
 
-# 2. Install backend dependencies
+# 2. Install the backend dependencies
 pip install -r backend/requirements.txt
 
-# 3. Configure credentials
+# 3. Make the configuration file
 cp .env.example backend/.env      # on Windows: copy .env.example backend\.env
 ```
 
-Edit `backend/.env`:
+Open `backend/.env` in an editor. Set these values:
 
 ```env
 API_ID=12345678
@@ -104,13 +104,15 @@ PHONE_NUMBER=+1234567890
 CHANNELS=-1001111111111,-1002222222222
 ```
 
-Run the scraper (prompts for a Telegram login code on first run):
+Start the scraper:
 
 ```bash
 python backend/telegram_fetcher.py
 ```
 
-Preview the site locally:
+On the first run, Telegram sends a login code to your account. Type this code when the scraper asks for it.
+
+To see the site on your computer, start a local server:
 
 ```bash
 python -m http.server        # then open http://localhost:8000
@@ -118,7 +120,7 @@ python -m http.server        # then open http://localhost:8000
 
 ## ⚙️ Configuration
 
-All config lives in `backend/.env` and is validated on startup by `backend/config.py`:
+Write all configuration in `backend/.env`. At startup, `backend/config.py` does a check of these values:
 
 | Variable       | Description                                              |
 | -------------- | ------------------------------------------------------- |
@@ -127,12 +129,12 @@ All config lives in `backend/.env` and is validated on startup by `backend/confi
 | `PHONE_NUMBER` | Account phone in E.164 format (e.g. `+1234567890`)      |
 | `CHANNELS`     | Comma-separated channel/chat IDs (negative integers)    |
 
-To find channel IDs, use the helper: `python backend/get_channel_info.py`.
+To find the channel IDs, run the helper: `python backend/get_channel_info.py`.
 
-For the optional **headless / GitHub Actions** path, one extra variable is used — `SESSION_STRING`,
-a Telethon [StringSession](https://docs.telethon.dev/en/stable/concepts/sessions.html). Leave it
-unset locally (the on-disk `.session` file is used instead); set it as a GitHub **secret** for CI.
-See [Publishing](#-publishing-github-pages) below.
+The **headless / GitHub Actions** path uses one more variable: `SESSION_STRING`. This is a Telethon
+[StringSession](https://docs.telethon.dev/en/stable/concepts/sessions.html). Do not set it on your
+computer. On your computer, the scraper uses the `.session` file on the disk. For CI, set
+`SESSION_STRING` as a GitHub **secret**. Refer to [Publishing](#-publishing-github-pages) below.
 
 ## 📄 Data contract
 
@@ -192,16 +194,18 @@ laptop. It installs deps, runs the fetcher using repository **secrets**, and com
 
 One-time setup:
 
-1. Generate a reusable login token (headless runs can't do the interactive phone-code step):
+1. Make a reusable login token. Headless runs cannot do the interactive phone-code step.
    ```bash
    cd backend && python generate_session.py
    ```
-   Copy the printed `SESSION_STRING`. ⚠️ It logs in as your account — treat it like a password.
-2. In the repo, add these **Actions secrets** (*Settings → Secrets and variables → Actions*):
-   `API_ID`, `API_HASH`, `PHONE_NUMBER`, `CHANNELS` (same as your `.env`), and `SESSION_STRING`.
-3. Trigger it from *Actions → Fetch Links → Run workflow* (web or mobile app).
+   Copy the `SESSION_STRING` that the script shows.
 
-The local `update.bat` flow is unchanged and needs no `SESSION_STRING`.
+   > ⚠️ **WARNING: The `SESSION_STRING` gives full access to your Telegram account. Keep it safe, as you keep a password.**
+2. In the repository, go to *Settings → Secrets and variables → Actions*. Add these **Actions secrets**:
+   `API_ID`, `API_HASH`, `PHONE_NUMBER`, `CHANNELS` (the same values as in your `.env`), and `SESSION_STRING`.
+3. Go to *Actions → Fetch Links → Run workflow* (web or mobile app). Push *Run workflow* to start the fetch.
+
+The local `update.bat` flow does not change. It does not use `SESSION_STRING`.
 
 > **Note on paths:** all asset and SEO paths are **relative** (no leading `/`) so they resolve on
 > the GitHub Pages project subpath, not just at a domain root.
