@@ -1,67 +1,88 @@
 {
-  "timestamp": "2026-10-27T06:36:21.066445+00:00",
+  "timestamp": "2026-10-27T06:54:20.924870+00:00",
   "links": [
+    {
+      "url": "https://khel-box.github.io/Wlo/",
+      "source_channel_id": -1002100926631,
+      "source_channel_name": "Cricket News",
+      "message_text": "**Ind vs NZ\n\nWillow \n****https://khel-box.github.io/Wlo/****\n\nTNT \n****https://tnt1-cricstreaming.pages.dev/****\n\nHin \n****https://khel-box.github.io/Hin**",
+      "posted_time": "2026-10-27T06:46:36+00:00"
+    },
+    {
+      "url": "https://tnt1-cricstreaming.pages.dev/",
+      "source_channel_id": -1002100926631,
+      "source_channel_name": "Cricket News",
+      "message_text": "**Ind vs NZ\n\nWillow \n****https://khel-box.github.io/Wlo/****\n\nTNT \n****https://tnt1-cricstreaming.pages.dev/****\n\nHin \n****https://khel-box.github.io/Hin**",
+      "posted_time": "2026-10-27T06:46:36+00:00"
+    },
+    {
+      "url": "https://khel-box.github.io/Hin",
+      "source_channel_id": -1002100926631,
+      "source_channel_name": "Cricket News",
+      "message_text": "**Ind vs NZ\n\nWillow \n****https://khel-box.github.io/Wlo/****\n\nTNT \n****https://tnt1-cricstreaming.pages.dev/****\n\nHin \n****https://khel-box.github.io/Hin**",
+      "posted_time": "2026-10-27T06:46:36+00:00"
+    },
     {
       "url": "https://ctvlive.pages.dev/?id=prime_hin",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=prime_eng",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/sl?id=so3",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/sl?id=so5",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=tnt1",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=willow_n",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=ten3ios",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=ten5ios",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=iOS",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 1st T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "message_text": "New Zealand v India T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
       "posted_time": "2026-10-27T05:59:56+00:00"
     }
   ]
