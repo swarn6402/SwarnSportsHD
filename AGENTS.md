@@ -11,7 +11,7 @@ SwarnSportsHD is a two-part app:
 1. **Backend** (`backend/`, Python + Telethon) — logs into a Telegram account,
    reads recent messages from configured channels, extracts stream URLs, and
    writes them to `data.json` at the repository root.
-2. **Frontend** (root `index.html` / `script.js` / `style.css`, vanilla JS) — a
+2. **Frontend** (root `index.html` / `assets/js/script.js` / `assets/css/style.css`, vanilla JS) — a
    static GitHub Pages site that fetches `data.json` and renders link cards.
 
 There is **no build step, no framework, no package manager for the frontend, and
@@ -40,16 +40,16 @@ no test suite.** Keep it that way unless explicitly asked otherwise.
 ```
 SwarnSportsHD/
 ├── index.html            # Frontend markup + link-card <template> + hero + footer
-├── script.js             # Frontend logic: fetch data.json, render, copy-to-clipboard
-├── style.css             # Frontend styling (dark broadcast theme, blue accent)
+├── assets/js/script.js             # Frontend logic: fetch data.json, render, copy-to-clipboard
+├── assets/css/style.css             # Frontend styling (dark broadcast theme, blue accent)
 ├── data.json             # GENERATED output consumed by the frontend (root copy)
-├── frontend/data.json    # Secondary copy used by deploy.sh /docs workflow
+├── docs/archive/frontend-data.json    # Secondary copy used by scripts/legacy/deploy.sh /docs workflow
 ├── robots.txt            # SEO: allow all + sitemap reference
 ├── sitemap.xml           # SEO: single canonical URL entry
 ├── site.webmanifest      # PWA manifest (name, icons, dark theme colors)
 ├── favicon.ico           # Favicon set (also *-16/32, apple-touch, android-chrome)
-├── update.bat            # Windows: fetch + git add/commit/push (primary workflow)
-├── deploy.sh             # Linux/macOS: fetch + copy to docs/ + push
+├── scripts/legacy/update.bat            # Windows: fetch + git add/commit/push (primary workflow)
+├── scripts/legacy/deploy.sh             # Linux/macOS: fetch + copy to docs/ + push
 ├── .env.example          # Template for credentials (safe to commit)
 ├── .github/workflows/
 │   └── fetch-links.yml   # Manual (workflow_dispatch) headless fetch + commit/push
@@ -67,7 +67,7 @@ SwarnSportsHD/
 ## Frontend look & feel (keep consistent)
 
 - Dark, broadcast-style theme with a **single electric-blue accent** (`--accent`
-  in `style.css`) used sparingly. Fonts via Google Fonts (`display=swap`): Plus
+  in `assets/css/style.css`) used sparingly. Fonts via Google Fonts (`display=swap`): Plus
   Jakarta Sans 800 for the hero `<h1>`, Space Grotesk for section headings, Inter
   for body.
 - The hero has a `.hero-media` background photo (Unsplash) behind the title only,
@@ -85,9 +85,9 @@ SwarnSportsHD/
 | Change how links are scraped/filtered | `backend/telegram_fetcher.py` (`extract_links_from_message`, `URL_BLACKLIST`) |
 | Tune sport filtering (football/cricket/F1) | `backend/telegram_fetcher.py` (`_is_football_message`, `CRICKET_KEYWORDS` / `F1_KEYWORDS` / `FOOTBALL_KEYWORDS`) |
 | Add/validate a config option | `backend/config.py` |
-| Change the rendered card / UI | `index.html` (`#link-card-template`) + `script.js` (`createLinkCard`) + `style.css` |
+| Change the rendered card / UI | `index.html` (`#link-card-template`) + `assets/js/script.js` (`createLinkCard`) + `assets/css/style.css` |
 | Change the `data.json` shape | Backend `get_all_cricket_links` **and** frontend `displayLinks`/`createLinkCard` must stay in sync |
-| Change deploy/commit flow | `update.bat` (Windows) / `deploy.sh` (Unix) / `.github/workflows/fetch-links.yml` (headless) |
+| Change deploy/commit flow | `scripts/legacy/update.bat` (Windows) / `scripts/legacy/deploy.sh` (Unix) / `.github/workflows/fetch-links.yml` (headless) |
 
 ## The data contract (keep both sides in sync)
 
@@ -109,7 +109,7 @@ SwarnSportsHD/
 ```
 
 If you alter any key here, update **both** the producer
-(`telegram_fetcher.py`) and the consumer (`script.js`).
+(`telegram_fetcher.py`) and the consumer (`assets/js/script.js`).
 
 ## Verifying changes
 

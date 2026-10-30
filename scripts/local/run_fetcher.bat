@@ -7,7 +7,9 @@ set "YELLOW=%ESC%[93m"
 set "RED=%ESC%[91m"
 set "RESET=%ESC%[0m"
 
-cd /d "%~dp0"
+rem Optional local helper; the live site is updated through GitHub Actions.
+cd /d "%~dp0..\..\backend"
+if errorlevel 1 exit /b 1
 
 echo %YELLOW%Running telegram_fetcher.py...%RESET%
 python telegram_fetcher.py

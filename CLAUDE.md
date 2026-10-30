@@ -25,7 +25,7 @@ frameworks.
    network I/O. Ask before executing `telegram_fetcher.py`, `get_channel_info.py`,
    or `generate_session.py`.
 5. **Keep the data contract in sync.** Any change to a `data.json` field must be
-   made in both `backend/telegram_fetcher.py` and `script.js`.
+   made in both `backend/telegram_fetcher.py` and `assets/js/script.js`.
 
 ## Where things live
 
@@ -44,15 +44,15 @@ frameworks.
 - **Config + validation:** `backend/config.py` (loads `backend/.env`, requires
   `API_ID`, `API_HASH`, `PHONE_NUMBER`, `CHANNELS`)
 - **Frontend:** `index.html` (markup + `#link-card-template` + `.hero-media`
-  layer + footer social/disclaimer), `script.js` (fetch/render/copy, 5-min
-  auto-refresh), `style.css`
+  layer + footer social/disclaimer), `assets/js/script.js` (fetch/render/copy, 5-min
+  auto-refresh), `assets/css/style.css`
 - **SEO / PWA assets (root):** `robots.txt`, `sitemap.xml`, `site.webmanifest`,
-  and the favicon set (`favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`,
-  `apple-touch-icon.png`, `android-chrome-192x192.png`,
-  `android-chrome-512x512.png`). All referenced with **relative** paths so they
+  and the favicon set (`favicon.ico`, `assets/icons/favicon-16x16.png`, `assets/icons/favicon-32x32.png`,
+  `assets/icons/apple-touch-icon.png`, `assets/icons/android-chrome-192x192.png`,
+  `assets/icons/android-chrome-512x512.png`). All referenced with **relative** paths so they
   resolve on the GitHub Pages project subpath.
-- **Ops:** `update.bat` (Windows primary), `deploy.sh` (Unix + /docs),
-  `backend/run_fetcher.*`, and `.github/workflows/fetch-links.yml` (manual
+- **Ops:** `scripts/legacy/update.bat` (Windows primary), `scripts/legacy/deploy.sh` (Unix + /docs),
+  `scripts/local/run_fetcher.*`, and `.github/workflows/fetch-links.yml` (manual
   `workflow_dispatch` headless fetch — runnable from the GitHub mobile app; auths
   via the `SESSION_STRING` secret, no schedule)
 
@@ -77,12 +77,12 @@ frameworks.
 - **External runtime deps:** Google Fonts + the Unsplash hero image are fetched
   from CDNs at page load. They're intentional, but they are the *only* third-party
   frontend requests — don't add more without a reason.
-- **Toast color** in `script.js` is inline styling kept in sync with `--accent`
+- **Toast color** in `assets/js/script.js` is inline styling kept in sync with `--accent`
   by hand; updating that one color string is styling, not logic.
 
 ## Environment notes
 
-- Primary dev OS is **Windows** (bash shell via Git Bash). `update.bat` is the
+- Primary dev OS is **Windows** (bash shell via Git Bash). `scripts/legacy/update.bat` is the
   main workflow. Use forward slashes and POSIX shell syntax in Bash tool calls.
 - Python 3.8+ (`telegram_fetcher.py` uses `list[str]` annotations).
 

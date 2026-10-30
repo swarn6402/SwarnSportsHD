@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 
 GREEN='\033[0;32m'
@@ -11,7 +11,8 @@ on_error() {
 }
 trap on_error ERR
 
-cd "$(dirname "$0")"
+# Optional local helper; the live site is updated through GitHub Actions.
+cd "$(dirname "$0")/../../backend"
 
 echo -e "${YELLOW}Running telegram_fetcher.py...${NC}"
 python3 telegram_fetcher.py

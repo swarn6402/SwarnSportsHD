@@ -15,7 +15,7 @@ channels and presents them on a simple public web page.
 Telegram channels
       │  (Telethon, authenticated user session)
       ▼
-backend/telegram_fetcher.py ──writes──►  data.json  ◄──fetch()── script.js ──renders──► index.html (GitHub Pages)
+backend/telegram_fetcher.py ──writes──►  data.json  ◄──fetch()── assets/js/script.js ──renders──► index.html (GitHub Pages)
       ▲
 backend/config.py (loads backend/.env)
 ```
@@ -55,7 +55,7 @@ The core scraper. Key elements:
 - `authenticate()` — dual-mode. If `SESSION_STRING` is set (headless/CI), it
   builds a `StringSession` in memory (no login prompt, no `.session` file);
   otherwise it falls back to the on-disk `TelegramClient("swarnsports_session", ...)`
-  used by `update.bat`. Either way it `start()`s with the configured phone.
+  used by `scripts/legacy/update.bat`. Either way it `start()`s with the configured phone.
 - `_is_football_message(text)` — conservative sport gate used by
   `get_all_cricket_links`. Returns `True` (drop the message's links) **only** when
   the text matches a football keyword **and** contains no cricket or F1 keyword.
@@ -100,14 +100,14 @@ One-time helper for the headless/CI path. Logs in interactively with the
 `SESSION_STRING`. Run locally only; never commit or log its output. Not used by
 the normal fetch flow.
 
-### 2.4 Frontend (`index.html`, `script.js`, `style.css`)
+### 2.4 Frontend (`index.html`, `assets/js/script.js`, `assets/css/style.css`)
 - `index.html` — semantic markup with a header/hero (an absolutely-positioned
   `.hero-media` photo layer behind the `.header-content`), a streams section
   containing `#loading-state`, `#empty-state`, `#links-container`, a
   `<template id="link-card-template">` cloned per link, and a footer with social
   links (GitHub, X — inline SVG) plus a content disclaimer. The `<head>` carries
-  the SEO/PWA block (see §2.6). Loads Google Fonts and `script.js`.
-- `script.js` — no dependencies:
+  the SEO/PWA block (see §2.6). Loads Google Fonts and `assets/js/script.js`.
+- `assets/js/script.js` — no dependencies:
   - `loadLinks()` — fetches `data.json` with `cache: "no-store"`; distinguishes
     HTTP errors vs malformed JSON; shows friendly error text.
   - `displayLinks(data)` — sorts links by `posted_time` desc; empty → empty state.
@@ -121,7 +121,7 @@ the normal fetch flow.
   - Auto-refresh: `setInterval(loadLinks, 5 * 60 * 1000)` after DOMContentLoaded.
   - `createToast` uses inline styles; its background color is kept in sync with
     the CSS `--accent` by hand (styling only — not part of the fetch/render logic).
-- `style.css` — hand-written responsive styling; premium dark broadcast theme.
+- `assets/css/style.css` — hand-written responsive styling; premium dark broadcast theme.
   - **Palette:** near-black background (`--bg-primary: #0a0a0a`) with a single
     **electric-blue accent** (`--accent: #3b82f6`, plus `--accent-strong` /
     `--accent-soft` / `--accent-glow` / `--accent-tint`) used sparingly: live dot,
@@ -150,9 +150,9 @@ the normal fetch flow.
 - **Root files:** `robots.txt` (allow all + `Sitemap:` line), `sitemap.xml`
   (single canonical URL), `site.webmanifest` (name `SwarnSports`, dark
   `theme_color`/`background_color` `#0a0a0a`, relative icon `src`s).
-- **Favicons (root):** `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`,
-  `apple-touch-icon.png`, `android-chrome-192x192.png`,
-  `android-chrome-512x512.png`, wired via relative-path `<link>` tags.
+- **Favicons (root):** `favicon.ico`, `assets/icons/favicon-16x16.png`, `assets/icons/favicon-32x32.png`,
+  `assets/icons/apple-touch-icon.png`, `assets/icons/android-chrome-192x192.png`,
+  `assets/icons/android-chrome-512x512.png`, wired via relative-path `<link>` tags.
 - **Path rule:** every asset/SEO path is **relative** (no leading `/`) so it
   resolves on the GitHub Pages project subpath
   (`https://swarn6402.github.io/SwarnSportsHD/`), not just at a domain root.
@@ -160,12 +160,12 @@ the normal fetch flow.
   the only third-party frontend requests. Intentional; don't add more casually.
 
 ### 2.5 Ops scripts
-- `update.bat` (Windows, **primary**): `cd backend` → run fetcher → `git add
+- `scripts/legacy/update.bat` (Windows, **primary**): `cd backend` → run fetcher → `git add
   data.json` → commit `"Update links"` (tolerates no-change) → `git push`.
-- `deploy.sh` (Unix): run fetcher → `mkdir -p docs` + `cp -r frontend/* docs/`
+- `scripts/legacy/deploy.sh` (Unix): run fetcher → `mkdir -p docs` + `cp -r frontend/* docs/`
   → commit with dated message → `git push origin main`. Supports the "serve from
   /docs" GitHub Pages option.
-- `backend/run_fetcher.sh` / `run_fetcher.bat`: thin wrappers to run the fetcher
+- `scripts/local/run_fetcher.sh` / `run_fetcher.bat`: thin wrappers to run the fetcher
   with error trapping.
 - `.github/workflows/fetch-links.yml` (GitHub Actions, **manual only**):
   `workflow_dispatch`-triggered job (tap *Run workflow* from the web UI or GitHub
@@ -174,7 +174,7 @@ the normal fetch flow.
   / `PHONE_NUMBER` / `CHANNELS` / `SESSION_STRING` injected from repo **secrets** →
   commit & push `data.json` (skips the commit when unchanged). Needs `permissions:
   contents: write`. There is intentionally **no `schedule:`** — it runs only when
-  triggered. Mirrors `update.bat`, but headless (auth via `SESSION_STRING`).
+  triggered. Mirrors `scripts/legacy/update.bat`, but headless (auth via `SESSION_STRING`).
 
 ---
 
@@ -199,10 +199,10 @@ sides.**
 ```
 
 Producer: `get_all_cricket_links()` in `telegram_fetcher.py`.
-Consumer: `displayLinks` / `createLinkCard` in `script.js`.
+Consumer: `displayLinks` / `createLinkCard` in `assets/js/script.js`.
 
 Note the **two copies** of `data.json`: root (written by the fetcher, served by
-Pages-from-root) and `frontend/data.json` (used by the `deploy.sh` /docs flow).
+Pages-from-root) and `docs/archive/frontend-data.json` (used by the `scripts/legacy/deploy.sh` /docs flow).
 Be aware which deployment mode is in use before assuming which copy is live.
 
 ---
@@ -241,8 +241,8 @@ Dependencies (`backend/requirements.txt`): `telethon`, `python-dotenv`. Python
 | Install deps | `pip install -r backend/requirements.txt` |
 | Discover channel ids | `python backend/get_channel_info.py` |
 | Run scraper | `python backend/telegram_fetcher.py` |
-| Full update (Windows) | `update.bat` |
-| Full update (Unix, /docs) | `./deploy.sh` |
+| Full update (Windows) | `scripts/legacy/update.bat` |
+| Full update (Unix, /docs) | `./scripts/legacy/deploy.sh` |
 | Full update (headless/phone) | GitHub → *Actions → Fetch Links → Run workflow* |
 | Mint a CI session string | `python backend/generate_session.py` (one-time) |
 | Preview frontend | `python -m http.server` in repo root, open `localhost:8000` |
@@ -280,16 +280,16 @@ network activity. Agents should not run these without explicit user approval.
   (dual file/StringSession) and, for CI, the secrets in `fetch-links.yml`.
 - Adding a config field → `config.py` (validate it) + document in `.env.example`
   + README (and add it to `fetch-links.yml` env + GitHub secrets if CI needs it).
-- Changing a `data.json` field → `telegram_fetcher.py` **and** `script.js`
+- Changing a `data.json` field → `telegram_fetcher.py` **and** `assets/js/script.js`
   (+ possibly `index.html` template) together.
-- Changing the UI → `index.html` template + `script.js` render fns + `style.css`.
-- Changing the accent color / theme → `style.css` `:root` accent variables **and**
-  the inline toast color in `script.js` (+ `theme-color` / `site.webmanifest` if
+- Changing the UI → `index.html` template + `assets/js/script.js` render fns + `assets/css/style.css`.
+- Changing the accent color / theme → `assets/css/style.css` `:root` accent variables **and**
+  the inline toast color in `assets/js/script.js` (+ `theme-color` / `site.webmanifest` if
   the base dark tone changes).
 - Changing the site title/description → `<title>`, `<meta name="description">`,
   and the matching `og:`/`twitter:` tags in `index.html` together.
 - Changing SEO/PWA assets → keep all paths **relative** for the Pages subpath;
   touch `robots.txt` / `sitemap.xml` / `site.webmanifest` / favicon `<link>`s as
   needed.
-- Changing deploy behavior → `update.bat` and/or `deploy.sh` (mind the two
+- Changing deploy behavior → `scripts/legacy/update.bat` and/or `scripts/legacy/deploy.sh` (mind the two
   `data.json` copies and the Pages source setting).

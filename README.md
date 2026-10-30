@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="android-chrome-512x512.png" alt="SwarnSports logo" width="120" height="120" />
+<img src="assets/icons/android-chrome-512x512.png" alt="SwarnSports logo" width="120" height="120" />
 
 # SwarnSports
 
@@ -44,7 +44,7 @@ minutes. No build tooling, no server, no database.
   classifier drops clear football posts while always keeping cricket (and letting F1 through).
 - ⏱️ **24-hour window** — keeps only fresh links (last 100 messages, filtered to the past 24h, UTC-aware).
 - 🛡️ **Per-channel resilience** — one unreachable channel never aborts the whole run.
-- 📲 **Two ways to run** — a local Windows `update.bat`, or a manual **GitHub Actions** button you
+- 📲 **Two ways to run** — a local Windows `scripts/legacy/update.bat`, or a manual **GitHub Actions** button you
   can tap from the GitHub mobile app (no laptop needed).
 
 ## 🌐 Live site
@@ -66,7 +66,7 @@ Telegram channels ──▶ telegram_fetcher.py ──▶ data.json ──▶ in
 3. Results are written to `data.json` at the repository root.
 4. The static frontend fetches `data.json` and renders link cards, auto-refreshing every 5 minutes.
 
-The fetch can be triggered locally (`update.bat`) **or** remotely by tapping *Run workflow* on the
+The fetch can be triggered locally (`scripts/legacy/update.bat`) **or** remotely by tapping *Run workflow* on the
 GitHub Actions "Fetch Links" job — handy from a phone.
 
 There is **no build step, no framework, and no server** — just Python standard library + Telethon
@@ -139,7 +139,7 @@ computer. On your computer, the scraper uses the `.session` file on the disk. Fo
 ## 📄 Data contract
 
 `data.json` is **generated output** — do not edit it by hand. Any field change must be mirrored in
-both `backend/telegram_fetcher.py` (producer) and `script.js` (consumer).
+both `backend/telegram_fetcher.py` (producer) and `assets/js/script.js` (consumer).
 
 ```json
 {
@@ -169,8 +169,8 @@ The frontend is intentionally simple to host and hack on — three files, no too
 - **Motion & accessibility:** eased micro-interactions, a staggered card entrance, a pulsing live
   dot, hover effects that fall back to tap states on touch, and full `prefers-reduced-motion` support.
 
-Editing the card layout means touching `index.html` (`#link-card-template`) + `script.js`
-(`createLinkCard`) + `style.css` together.
+Editing the card layout means touching `index.html` (`#link-card-template`) + `assets/js/script.js`
+(`createLinkCard`) + `assets/css/style.css` together.
 
 ## 📦 Publishing (GitHub Pages)
 
@@ -178,12 +178,11 @@ The site is fully static and can be served straight from the repo.
 
 - **From root:** commit the frontend files + `data.json`, then set
   *Settings → Pages → Deploy from a branch → `main` / `(root)`*.
-- **From `/docs`:** run `deploy.sh` (copies `frontend/*` into `docs/`), then point Pages at `main` / `/docs`.
 
 Convenience scripts to fetch-and-publish in one step:
 
-- `update.bat` — Windows: runs the scraper, then `git add data.json` + commit + push.
-- `deploy.sh` — Linux/macOS: runs the scraper, copies to `docs/`, commits, and pushes.
+- `scripts/legacy/update.bat` — Windows: runs the scraper, then `git add data.json` + commit + push.
+- `scripts/legacy/deploy.sh` — Linux/macOS: legacy manual publisher for root `data.json`.
 
 ### Fetching from your phone (GitHub Actions)
 
@@ -205,7 +204,7 @@ One-time setup:
    `API_ID`, `API_HASH`, `PHONE_NUMBER`, `CHANNELS` (the same values as in your `.env`), and `SESSION_STRING`.
 3. Go to *Actions → Fetch Links → Run workflow* (web or mobile app). Push *Run workflow* to start the fetch.
 
-The local `update.bat` flow does not change. It does not use `SESSION_STRING`.
+The local `scripts/legacy/update.bat` flow does not change. It does not use `SESSION_STRING`.
 
 > **Note on paths:** all asset and SEO paths are **relative** (no leading `/`) so they resolve on
 > the GitHub Pages project subpath, not just at a domain root.
@@ -215,8 +214,8 @@ The local `update.bat` flow does not change. It does not use `SESSION_STRING`.
 ```
 SwarnSportsHD/
 ├── index.html            # Frontend markup + link-card template + hero + footer
-├── style.css             # Styling (dark broadcast theme, electric-blue accent)
-├── script.js             # Fetch, render, copy, 5-min auto-refresh
+├── assets/css/style.css             # Styling (dark broadcast theme, electric-blue accent)
+├── assets/js/script.js             # Fetch, render, copy, 5-min auto-refresh
 ├── data.json             # Generated output (scraper writes this)
 ├── robots.txt            # SEO: allow all + sitemap reference
 ├── sitemap.xml           # SEO: canonical URL
@@ -230,8 +229,8 @@ SwarnSportsHD/
 │   ├── get_channel_info.py   # Helper to list channel IDs
 │   ├── generate_session.py   # One-time: make a SESSION_STRING for CI
 │   └── requirements.txt
-├── update.bat            # Windows fetch + publish
-└── deploy.sh             # Unix fetch + publish to /docs
+├── scripts/legacy/update.bat            # Windows fetch + publish
+└── scripts/legacy/deploy.sh             # Unix fetch + publish to /docs
 ```
 
 ## 🩺 Troubleshooting
