@@ -5,6 +5,42 @@ const lastUpdatedEl = document.getElementById("last-updated");
 const cardTemplate = document.getElementById("link-card-template");
 const copyResetTimers = new WeakMap();
 
+// Keep this destination policy in sync with backend URL_BLACKLIST.
+// Unknown stream hosts and player query strings remain supported.
+const blockedLinkHosts = [
+  "t.me", "telegram.me", "telegram.org", "telegram.dog", "tg.me",
+  "whatsapp.com", "whatsapp.net", "wa.me", "wa.link",
+  "discord.gg", "discord.com", "discordapp.com",
+  "bit.ly", "tinyurl.com", "shorturl.at", "shorturl.com"
+];
+
+function isAllowedStreamUrl(value) {
+  if (typeof value !== "string" || !value.trim() || /[\s\u0000-\u001f\u007f\\]/.test(value.trim())) {
+    return false;
+  }
+  try {
+    const authority = value.trim().match(/^https?:\/\/([^/?#]*)/i)?.[1];
+    if (!authority || authority.includes("@")) {
+      return false;
+    }
+    const url = new URL(value.trim());
+    if (!["http:", "https:"].includes(url.protocol) || url.username || url.password) {
+      return false;
+    }
+    const host = url.hostname.toLowerCase().replace(/\.$/, "");
+    if (!host.startsWith("[")) {
+      const labels = host.split(".");
+      const invalidLabel = labels.some(label => !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(label));
+      if (labels.length < 2 || host.length > 253 || invalidLabel) {
+        return false;
+      }
+    }
+    return !blockedLinkHosts.some(blocked => host === blocked || host.endsWith(`.${blocked}`));
+  } catch (_) {
+    return false;
+  }
+}
+
 async function loadLinks() {
   renderLoadingState();
   showLoading(true);
@@ -36,7 +72,9 @@ async function loadLinks() {
 function displayLinks(data) {
   linksContainer.innerHTML = "";
 
-  const links = Array.isArray(data?.links) ? [...data.links] : [];
+  const links = Array.isArray(data?.links)
+    ? data.links.filter(link => link && isAllowedStreamUrl(link.url))
+    : [];
   links.sort((a, b) => new Date(b.posted_time || 0) - new Date(a.posted_time || 0));
 
   if (links.length === 0) {
@@ -62,7 +100,7 @@ function createLinkCard(link, index = 0) {
   const messageEl = fragment.querySelector(".message-preview");
   const copyBtn = fragment.querySelector(".copy-btn");
 
-  const url = link?.url || "";
+  const url = typeof link?.url === "string" ? link.url.trim() : "";
   const channelName = link?.source_channel_name || String(link?.source_channel_id || "Unknown");
   const postedTime = link?.posted_time || null;
   const messageText = typeof link?.message_text === "string" ? link.message_text : "";
