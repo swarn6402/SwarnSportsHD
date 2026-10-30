@@ -8,8 +8,9 @@ the [architecture](docs/CONTEXT.md), and the [security policy](SECURITY.md).
 - Use a focused branch and pull request for one behavior or a small related set
   of changes. Explain the concrete problem and resulting behavior.
 - Preserve vanilla HTML/CSS/JavaScript and the Python/Telethon backend. There is
-  no frontend build step or checked-in test suite; a dependency, framework, or
-  new test infrastructure should be discussed separately.
+  no frontend build step or behavioral test suite. Keep the existing static
+  checks small; a dependency, framework, or new test infrastructure should be
+  discussed separately.
 - Keep source changes and generated `data.json` updates separate. Normal link
   updates use **Actions → Fetch Links → Run workflow** on `main`.
 - Do not commit credentials, session artifacts, environments, caches, local
@@ -38,16 +39,21 @@ Useful source-only checks from root:
 
 ```bash
 git diff --check
+python scripts/check.py
 node --check assets/js/script.js
 ```
 
-Node is optional developer tooling for the syntax check, not a frontend runtime
-dependency or package manager. Python syntax can be checked without importing
-the backend or loading `.env`:
+`scripts/check.py` uses only Python's standard library and Git. It checks tracked
+Python syntax, JSON/manifest parsing, the root data contract, and local
+HTML/manifest file references. It never imports the backend, reads `.env`, visits
+stream URLs, or writes generated data. Empty link lists are valid; freshness and
+destination eligibility are not part of this structural check.
 
-```bash
-python -c "import ast,pathlib; [ast.parse(p.read_text(encoding='utf-8-sig'), filename=str(p)) for p in pathlib.Path('backend').glob('*.py')]"
-```
+The **Source Checks** workflow runs these checks plus shell syntax on pull
+requests to `main` and source pushes to `main`; data-only pushes skip it. It uses
+Python 3.12 and Node 22, without installing backend packages or using secrets.
+Node is developer tooling for syntax checking, not a frontend runtime dependency
+or package manager. CI checks do not replace verification of affected behavior.
 
 For shell changes, use `bash -n` on each affected `.sh` file. For frontend changes,
 check rendering, copying, empty/error states, responsive layout, reduced motion,

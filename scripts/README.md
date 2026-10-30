@@ -1,7 +1,18 @@
-# Optional local scripts
+# Repository scripts
+
+`check.py` provides offline source and site validation using Python's standard
+library and Git. Run `python scripts/check.py` from the repository root (or use
+the script's full path from another directory). It checks
+tracked Python/JSON files, the root data contract, and local HTML/manifest paths
+without importing the backend, reading credentials, writing data, or making
+network calls. Source Checks runs it in CI; see
+[contributing](../CONTRIBUTING.md#verify-the-affected-behavior) for companion
+JavaScript and shell syntax checks.
+
+## Optional local scripts
 
 The live site is updated through **GitHub Actions → Fetch Links → Run workflow**.
-None of these scripts is called by that workflow. They are retained for manual
+None of the local/legacy wrappers is called by that workflow. They are retained for manual
 use only; do not run them as part of a frontend preview or repository cleanup.
 
 - `local/run_fetcher.bat` and `local/run_fetcher.sh` run the scraper locally and

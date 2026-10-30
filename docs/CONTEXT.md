@@ -193,9 +193,12 @@ hero photograph are the intentional external runtime resources.
 `.github/workflows/fetch-links.yml` is manual acquisition/publication automation
 with Python 3.12, per-branch concurrency, secret-backed headless authentication,
 and data-only commits. GitHub Pages deployment is a separate stage that must be
-verified for the produced revision. No automated repository test workflow is
-configured. [OPERATIONS.md](OPERATIONS.md) describes setup, source publication,
-failure recovery, and deployment checks.
+verified for the produced revision. `.github/workflows/checks.yml` separately
+runs offline syntax, JSON/data-contract, and local HTML/manifest reference checks
+on pull requests and source pushes to `main`. It has read-only permissions and
+does not use Telegram credentials or install backend packages. It is static
+validation, not a behavioral test suite. [OPERATIONS.md](OPERATIONS.md) describes
+setup, source publication, failure recovery, and deployment checks.
 
 The local wrappers and unused manual publishers live under `scripts/`; see
 [their guide](../scripts/README.md). Keep generated refreshes separate from

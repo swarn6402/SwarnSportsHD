@@ -13,9 +13,11 @@ as the operating guide, [docs/CONTEXT.md](docs/CONTEXT.md) for architecture, and
 - GitHub Pages uses the repository-root layout. Keep `index.html`, `data.json`,
   backend entry points, and `.github/workflows/fetch-links.yml` at their paths.
   `docs/` contains documentation, not the Pages deployment root.
-- No frontend build, framework, package manager, or checked-in test suite.
-  Do not introduce one unless explicitly requested. Python 3.12 is the Actions
-  runtime. Backend dependencies remain `telethon` and `python-dotenv`.
+- No frontend build, framework, package manager, or behavioral test suite.
+  Lightweight static checks live in `scripts/check.py` and
+  `.github/workflows/checks.yml`; do not introduce further test infrastructure
+  unless explicitly requested. Python 3.12
+  is the Actions runtime. Backend dependencies remain `telethon` and `python-dotenv`.
 
 ## Credentials and live operations
 
@@ -75,8 +77,10 @@ as the operating guide, [docs/CONTEXT.md](docs/CONTEXT.md) for architecture, and
   bind a credential-containing checkout to other interfaces, or expose a tunnel.
 - Exercise cards, copying, empty/error states, responsive layout, and asset/data
   paths. State explicitly when a browser or live backend check was unavailable.
-- Use syntax checks and isolated offline cases appropriate to the change.
-  Existing acquisition automation is not an automated test pipeline.
+- Run `python scripts/check.py`, `node --check assets/js/script.js`, and shell
+  syntax checks as described in [CONTRIBUTING.md](CONTRIBUTING.md). Source Checks
+  runs these offline in CI without secrets; it does not test parser behavior,
+  playback, or live acquisition. Use isolated offline cases for changed behavior.
 - Follow [CONTRIBUTING.md](CONTRIBUTING.md) and the publication checklist in
   [docs/OPERATIONS.md](docs/OPERATIONS.md). Stage exact reviewed paths only;
   never use broad staging for generated link updates. Keep source changes and

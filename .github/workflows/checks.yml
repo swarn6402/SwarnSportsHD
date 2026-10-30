@@ -1,0 +1,48 @@
+name: Source Checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    # Routine generated-link updates do not need another source check.
+    paths-ignore:
+      - data.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node for JavaScript syntax checking
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check Python, JSON, data contract, and local assets
+        run: python scripts/check.py
+
+      - name: Check JavaScript syntax
+        run: node --check assets/js/script.js
+
+      - name: Check shell syntax without executing scripts
+        run: |
+          bash -n scripts/local/run_fetcher.sh
+          bash -n scripts/legacy/deploy.sh

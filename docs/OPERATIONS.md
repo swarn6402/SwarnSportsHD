@@ -81,8 +81,7 @@ trigger Telegram or expire old rows locally.
 - Concurrency: one running fetch per branch, without cancelling that running
   fetch. GitHub may replace an older pending run when another is requested;
   this is not a FIFO queue of every button press.
-- No repository test pipeline is configured. Offline checks described in
-  [CONTRIBUTING.md](../CONTRIBUTING.md) are maintainer verification.
+- Source validation is handled separately by **Source Checks**, described below.
 
 GitHub Pages publication is separate from the fetch job. Do not change the
 existing source settings during a source cleanup. GitHub documents that commits
@@ -93,6 +92,26 @@ must still verify the deployment revision. If the stages stop lining up,
 investigate the configured Pages integration before changing tokens or workflows.
 See GitHub's [publishing-source documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 and [concurrency behavior](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
+
+## Source Checks
+
+`.github/workflows/checks.yml` runs on pull requests to `main` and source pushes
+to `main`; pushes changing only `data.json` skip it. The job has a five-minute
+timeout, read-only repository permissions, no saved checkout credentials, and
+no Telegram secrets. New runs cancel older source checks for the same ref,
+independently of the Fetch Links workflow.
+
+It uses Python 3.12 and Node 22 to check Python/JavaScript/shell syntax, parse
+tracked JSON and the web manifest, check the root data structure, and confirm
+local HTML/manifest references exist and use relative paths. It installs no
+backend packages, imports no backend code, and never executes publishing or
+Telegram helpers. No source or generated data is changed.
+
+For failures, fix the reported source or missing asset and rerun by pushing the
+correction. Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for local commands.
+These checks do not validate parser behavior, data freshness, remote URLs,
+browser rendering, playback, or deployment. They report failures; they do not
+configure branch protection or prevent direct pushes to `main`.
 
 ## Failure handling
 

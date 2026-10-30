@@ -6,6 +6,7 @@
 Cricket stream links from Telegram, published through GitHub Actions and served by GitHub Pages.
 
 [![Fetch Links](https://github.com/swarn6402/SwarnSportsHD/actions/workflows/fetch-links.yml/badge.svg?branch=main)](https://github.com/swarn6402/SwarnSportsHD/actions/workflows/fetch-links.yml)
+[![Source Checks](https://github.com/swarn6402/SwarnSportsHD/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/swarn6402/SwarnSportsHD/actions/workflows/checks.yml)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](backend/requirements.txt)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -40,10 +41,13 @@ The workflow is manual: there is no scheduled acquisition. GitHub Pages serves
 the repository-root site; publication should be confirmed from its separate
 **pages build and deployment** run and the published data timestamp.
 
-This is acquisition and publication automation. There is currently **no
-checked-in automated test suite or pull-request test workflow**; the status badge
-reports Fetch Links, not test coverage. See the [operations guide](docs/OPERATIONS.md)
-for setup, deployment verification, failure handling, and release checks.
+[Source Checks](.github/workflows/checks.yml) runs separately on pull requests to
+`main` and source pushes to `main`. It checks Python, JavaScript, and shell syntax,
+JSON structure, the data contract, and local HTML/manifest asset paths without
+Telegram credentials or installing backend packages. Data-only pushes skip it.
+These are lightweight static checks, not a behavioral test suite or proof that
+streams play. See the [operations guide](docs/OPERATIONS.md) for setup, deployment
+verification, failure handling, and release checks.
 
 ## Link handling
 
@@ -133,9 +137,10 @@ SwarnSportsHD/
 │   └── icons/
 ├── backend/                       # Fetcher, configuration, login helpers
 ├── .github/
-│   ├── workflows/fetch-links.yml   # Manual acquisition and data publication
+│   ├── workflows/                 # Manual Fetch Links and offline Source Checks
 │   └── pull_request_template.md
 ├── scripts/
+│   ├── check.py                   # Offline source and site checks
 │   ├── local/                     # Optional fetch-only wrappers
 │   └── legacy/                    # Unused manual publishers
 ├── docs/
