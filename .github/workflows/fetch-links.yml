@@ -1,7 +1,7 @@
 name: Fetch Links
 
 # Manual trigger only: tap "Run workflow" from the GitHub website or the GitHub
-# mobile app. This mirrors what update.bat does locally, but headless.
+# mobile app. This is the primary live update workflow.
 on:
   workflow_dispatch:
 
@@ -9,12 +9,20 @@ on:
 permissions:
   contents: write
 
+# Serialize manual runs so two fetch jobs cannot race to push data.json.
+concurrency:
+  group: fetch-links-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          # A queued run should start from the branch's latest link update.
+          ref: ${{ github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,7 +40,12 @@ jobs:
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
           CHANNELS: ${{ secrets.CHANNELS }}
           SESSION_STRING: ${{ secrets.SESSION_STRING }}
-        run: python telegram_fetcher.py
+        run: |
+          if [ -z "$SESSION_STRING" ]; then
+            echo "::error::Missing required SESSION_STRING secret for headless authentication."
+            exit 1
+          fi
+          python telegram_fetcher.py
 
       - name: Commit and push updated data.json
         run: |
