@@ -83,6 +83,19 @@ not run Telegram acquisition or remove stale records**: freshness depends on the
 last successful manual fetch. Google Fonts and the hero photograph are external
 runtime resources; the photograph has a solid-color fallback.
 
+## Visitor statistics
+
+Cloudflare Web Analytics is embedded once in `index.html` for free traffic and
+page-performance statistics. Sign in to [Cloudflare Web Analytics](https://dash.cloudflare.com/?to=/:account/web-analytics)
+and select `swarn6402.github.io` to view visits and page views. Counts start
+after installation; visits are not an exact count of unique people. Browser
+blocking and disabled JavaScript can reduce recorded traffic.
+
+The snippet's site token is intentionally public; account credentials and API
+keys do not belong in Git. Hosting and DNS remain on GitHub Pages. See the
+[analytics runbook](docs/OPERATIONS.md#visitor-analytics) for verification and
+removal, and [SECURITY.md](SECURITY.md#visitor-analytics) for data boundaries.
+
 ## Preview locally
 
 Python 3.12 matches the Actions runtime. A frontend preview needs no Telegram

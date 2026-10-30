@@ -185,8 +185,11 @@ Open Graph URL, and sitemap URLs are intentionally absolute.
 
 Keep `<title>`, description, Open Graph, and Twitter wording synchronized.
 The manifest supplies names, colors, and icon references. There is no service
-worker, offline cache, tracking script, or custom frontend build. Fonts and the
-hero photograph are the intentional external runtime resources.
+worker, offline cache, or custom frontend build. Fonts, the hero photograph, and
+the Cloudflare Web Analytics beacon are intentional external runtime resources.
+The beacon is a separate async module script after the application script; stream
+loading does not depend on analytics. Its site token is public and does not
+grant dashboard access. See [visitor analytics](OPERATIONS.md#visitor-analytics).
 
 ## Automation and maintenance
 

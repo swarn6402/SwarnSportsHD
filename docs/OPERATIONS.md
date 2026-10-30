@@ -93,6 +93,46 @@ investigate the configured Pages integration before changing tokens or workflows
 See GitHub's [publishing-source documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 and [concurrency behavior](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
 
+## Visitor analytics
+
+The manually embedded Cloudflare Web Analytics snippet in root `index.html`
+uses the maintainer-provided public site token for `swarn6402.github.io`.
+There is no DNS change, hosting migration, backend service, or Actions secret.
+The site discloses the integration in its footer. The async module script loads
+separately from the application; blocking analytics must not prevent cards
+from loading or copying.
+
+To view traffic:
+
+1. Sign in to [Cloudflare Web Analytics](https://dash.cloudflare.com/?to=/:account/web-analytics).
+2. Select `swarn6402.github.io` and choose the date range. Filter the path to
+   `/SwarnSportsHD/` if the hostname is also used for other instrumented sites.
+3. Read **Visits** and **Page views**. These are traffic measurements, not an
+   exact count of unique people. One visit can include multiple page views.
+
+Statistics start after installation; earlier traffic cannot be reconstructed
+from this snippet. Ad blockers, disabled JavaScript, and failed beacon requests
+can cause undercounting. Refreshing `data.json` every five minutes does not
+reload the page or reinject the analytics snippet.
+
+After deployment, open the live page with analytics permitted and allow a few
+minutes for data to appear. In browser network tools, confirm the script loads
+and its analytics POST succeeds; loading the HTML alone does not prove that
+Cloudflare received a measurement. Do not manufacture events with direct POSTs.
+If events are absent, check that the dashboard hostname is `swarn6402.github.io`
+(without a scheme or path), the deployed token matches Manage site, and browser
+blocking or referrer restrictions are not preventing requests. Recheck cards
+with the beacon blocked. Publishing a snippet is not proof of dashboard data.
+
+The public site token can remain in HTML; never substitute a private account
+API key. To disable analytics, remove its script and footer disclosure from
+`index.html`, update these docs, and publish the reviewed change. Do not remove
+`assets/js/script.js`. No package or workflow changes are required.
+
+See Cloudflare's [setup guide](https://developers.cloudflare.com/web-analytics/get-started/),
+[metric definitions](https://developers.cloudflare.com/web-analytics/data-metrics/high-level-metrics/),
+and [troubleshooting](https://developers.cloudflare.com/web-analytics/faq/).
+
 ## Source Checks
 
 `.github/workflows/checks.yml` runs on pull requests to `main` and source pushes

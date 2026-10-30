@@ -52,6 +52,21 @@ content you intend to publish. The retained historical JSON in `docs/archive/`
 is also part of the public repository. Reorganization does not change this
 data contract or remove published message content.
 
+## Visitor analytics
+
+`index.html` loads the Cloudflare Web Analytics beacon for traffic and page
+performance statistics. Its `data-cf-beacon` token is an intentionally public
+site identifier, not a Cloudflare account API key or a Telegram credential.
+Dashboard access remains in the maintainer's Cloudflare account; no account
+password or API key is embedded in the site or required by Actions.
+
+This adds a third-party browser resource and sends analytics measurements to
+Cloudflare. No custom click/copy tracking or application code sending Telegram
+credentials or `data.json` records to analytics is included. Refer to
+[Cloudflare's documentation](https://developers.cloudflare.com/web-analytics/about/)
+for the provider's data policy and
+[operations](docs/OPERATIONS.md#visitor-analytics) for disabling the integration.
+
 ## Link filtering boundaries
 
 The parser and frontend reject known Telegram/WhatsApp/Discord destinations,
