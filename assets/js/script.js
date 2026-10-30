@@ -326,6 +326,9 @@ function renderLoadingState() {
   skeletonWrap.style.display = "grid";
   skeletonWrap.style.gap = "10px";
 
+  const prefersReducedMotion = typeof globalThis.matchMedia === "function" &&
+    globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   for (let index = 0; index < 3; index += 1) {
     const skeleton = document.createElement("div");
     skeleton.style.height = "12px";
@@ -333,7 +336,7 @@ function renderLoadingState() {
     skeleton.style.borderRadius = "999px";
     skeleton.style.background = "rgba(255, 255, 255, 0.08)";
 
-    if (typeof skeleton.animate === "function") {
+    if (typeof skeleton.animate === "function" && !prefersReducedMotion) {
       skeleton.animate(
         [
           { opacity: 0.35 },
