@@ -21,3 +21,6 @@ From the repository root, Windows users can run `scripts\local\run_fetcher.bat`;
 Unix users can run `bash scripts/local/run_fetcher.sh`. These commands perform
 real Telegram network activity and may prompt for login. Use the legacy
 publishers only when you explicitly intend to commit and push a link update.
+
+See [the operations runbook](../docs/OPERATIONS.md) for setup, live updates,
+verification, and publication checks. Do not use these scripts to test a change.

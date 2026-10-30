@@ -1,277 +1,171 @@
 <div align="center">
+  <img src="assets/icons/android-chrome-512x512.png" alt="SwarnSports logo" width="112" height="112" />
 
-<img src="assets/icons/android-chrome-512x512.png" alt="SwarnSports logo" width="120" height="120" />
+# SwarnSportsHD
 
-# SwarnSports
+Cricket stream links from Telegram, published through GitHub Actions and served by GitHub Pages.
 
-**Live cricket streaming links — aggregated from Telegram, served on a fast, dependency-free web page.**
+[![Fetch Links](https://github.com/swarn6402/SwarnSportsHD/actions/workflows/fetch-links.yml/badge.svg?branch=main)](https://github.com/swarn6402/SwarnSportsHD/actions/workflows/fetch-links.yml)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](backend/requirements.txt)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-[![Live site](https://img.shields.io/badge/live-swarn6402.github.io-3b82f6.svg)](https://swarn6402.github.io/SwarnSportsHD/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
-[![Frontend: Vanilla JS](https://img.shields.io/badge/frontend-vanilla%20JS-f7df1e.svg)](#-frontend)
-[![No build step](https://img.shields.io/badge/build-none-brightgreen.svg)](#-frontend)
+[Live site](https://swarn6402.github.io/SwarnSportsHD/) · [Operations](docs/OPERATIONS.md) · [Architecture](docs/CONTEXT.md) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
----
+SwarnSports is a static link aggregator. A Python/Telethon process reads configured
+Telegram channels and writes root `data.json`; the browser displays that file as
+copyable link cards. There is no frontend framework, package manager, build step,
+database service, or application server to deploy.
 
-SwarnSports is a two-part project: a **Python + Telethon scraper** that collects cricket
-stream links posted in Telegram channels into a `data.json` file, and a **static, framework-free
-web frontend** that renders those links as clean, copyable cards — auto-refreshing every few
-minutes. No build tooling, no server, no database.
+## Automation and publishing
 
-> **Click a link to watch. Copy a link to share.** That's the whole interaction.
+The primary operational workflow is [Fetch Links](.github/workflows/fetch-links.yml).
+Run it from **Actions → Fetch Links → Run workflow**, selecting `main`. It can be
+started from GitHub on the web or mobile; local batch files are not part of the
+normal update process.
 
-## ✨ Features
+The workflow:
 
-**Frontend**
-- ⚡ **Zero build, zero framework** — hand-written HTML, CSS, and vanilla JS. Loads instantly.
-- 🎨 **Premium broadcast UI** — dark, near-black theme with a single electric-blue accent, a
-  cinematic cricket hero image, and clean modern typography (Plus Jakarta Sans / Space Grotesk / Inter).
-- 🔄 **Auto-refresh** — pulls the latest `data.json` every 5 minutes, no reload needed.
-- 📋 **One-tap copy** — copy any stream link to the clipboard with graceful fallbacks + toast feedback.
-- 📱 **Fully responsive** — 1 → 2 → 3 column grid, ≥44px tap targets, hover effects that degrade
-  gracefully to touch, and `prefers-reduced-motion` support.
-- 🔍 **SEO & PWA ready** — canonical URL, Open Graph / Twitter cards, `robots.txt`, `sitemap.xml`,
-  a web manifest, and a full favicon set.
+1. Checks out the selected branch's latest commit and sets up Python 3.12.
+2. Installs `telethon` and `python-dotenv` from `backend/requirements.txt`.
+3. Injects repository Actions secrets into the fetch step and requires a
+   `SESSION_STRING` for headless authentication.
+4. Reads recent channel messages, extracts eligible URLs, and replaces
+   `data.json` atomically. If every channel fails, it preserves the previous file.
+5. Commits and pushes **only `data.json`**, skipping the commit when unchanged.
 
-**Backend**
-- 🤖 **Telethon-powered** — reads recent messages from configured channels as an authenticated user.
-- 🧹 **Smart link extraction** — pulls URLs from message entities *and* text, validates schemes,
-  strips trailing punctuation, deduplicates globally, and blacklist-filters invite links.
-- 🏏 **Sport filtering** — the same channels sometimes post football; a conservative per-message
-  classifier drops clear football posts while always keeping cricket (and letting F1 through).
-- ⏱️ **24-hour window** — keeps only fresh links (last 100 messages, filtered to the past 24h, UTC-aware).
-- 🛡️ **Per-channel resilience** — one unreachable channel never aborts the whole run.
-- 📲 **Two ways to run** — a local Windows `scripts/legacy/update.bat`, or a manual **GitHub Actions** button you
-  can tap from the GitHub mobile app (no laptop needed).
+Concurrency is limited per branch so fetch jobs do not publish simultaneously.
+The workflow is manual: there is no scheduled acquisition. GitHub Pages serves
+the repository-root site; publication should be confirmed from its separate
+**pages build and deployment** run and the published data timestamp.
 
-## 🌐 Live site
+This is acquisition and publication automation. There is currently **no
+checked-in automated test suite or pull-request test workflow**; the status badge
+reports Fetch Links, not test coverage. See the [operations guide](docs/OPERATIONS.md)
+for setup, deployment verification, failure handling, and release checks.
 
-**→ [swarn6402.github.io/SwarnSportsHD](https://swarn6402.github.io/SwarnSportsHD/)**
+## Link handling
 
-## 🧭 How it works
+- Reads up to the latest 100 messages per channel and retains messages from the
+  preceding 24 hours, using UTC timestamps.
+- Uses raw message text, UTF-16 entity offsets, and hidden hyperlink targets;
+  formatting entities cannot produce partial URLs.
+- Excludes configured Telegram, WhatsApp, Discord, and common-shortener
+  destinations by hostname. A mixed post can retain its player URLs while its
+  join links are discarded.
+- Accepts new player domains, extensionless pages, and signed query strings.
+  There is no stream-domain allowlist or media-file-extension requirement.
+- Deduplicates URLs across channels. The sport heuristic excludes posts matching
+  football keywords only when no cricket or F1 keyword is present; ambiguous
+  posts remain eligible. Channel names do not decide the sport.
+- Handles individual channel failures without discarding results from other
+  readable channels. A successful read with no matching links may publish an
+  empty list.
 
-```
-Telegram channels ──▶ telegram_fetcher.py ──▶ data.json ──▶ index.html (static site)
-     (Telethon)          (scrape + filter)      (output)       (fetch + render)
-```
+Filtering does not establish that a destination plays video or that its redirects
+are safe. Unknown promo sites cannot reliably be recognized from their URLs alone.
+Read the [security policy](SECURITY.md) before configuring sources or sharing data.
 
-1. The backend logs into Telegram via [Telethon](https://docs.telethon.dev/), reads the last 100
-   messages from each configured channel, and keeps only those from the past 24 hours.
-2. It skips messages that are clearly football (cricket and F1 posts always pass), then extracts
-   `http/https` links from message entities and text, and validates, deduplicates, and
-   blacklist-filters them.
-3. Results are written to `data.json` at the repository root.
-4. The static frontend fetches `data.json` and renders link cards, auto-refreshing every 5 minutes.
+## Frontend
 
-The fetch can be triggered locally (`scripts/legacy/update.bat`) **or** remotely by tapping *Run workflow* on the
-GitHub Actions "Fetch Links" job — handy from a phone.
+The site uses vanilla HTML, CSS, and JavaScript, with a responsive dark theme,
+copy-to-clipboard controls, empty/error states, and relative asset paths for the
+GitHub Pages project subpath. Metadata, a web manifest, and icon assets are
+included. There is no service worker or offline-caching guarantee.
 
-There is **no build step, no framework, and no server** — just Python standard library + Telethon
-on the backend, and vanilla HTML/CSS/JS on the frontend.
+The browser requests `data.json` on load and every five minutes. **Polling does
+not run Telegram acquisition or remove stale records**: freshness depends on the
+last successful manual fetch. Google Fonts and the hero photograph are external
+runtime resources; the photograph has a solid-color fallback.
 
-## 🧰 Tech stack
+## Preview locally
 
-| Layer      | Tools                                                                 |
-| ---------- | --------------------------------------------------------------------- |
-| Backend    | Python 3.8+, [Telethon](https://docs.telethon.dev/), python-dotenv    |
-| Frontend   | Vanilla HTML / CSS / JavaScript (no framework, no bundler)            |
-| Fonts      | Plus Jakarta Sans, Space Grotesk, Inter (Google Fonts, `display=swap`)|
-| Hosting    | GitHub Pages (static, served from repo root)                          |
-
-## 🚀 Quick start
+Python 3.12 matches the Actions runtime. A frontend preview needs no Telegram
+credentials or installed backend packages.
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/swarn6402/SwarnSportsHD.git
 cd SwarnSportsHD
-
-# 2. Install the backend dependencies
-pip install -r backend/requirements.txt
-
-# 3. Make the configuration file
-cp .env.example backend/.env      # on Windows: copy .env.example backend\.env
+python -m http.server --bind 127.0.0.1 8000
 ```
 
-Open `backend/.env` in an editor. Set these values:
+Open `http://127.0.0.1:8000/`. Use HTTP rather than `file://` so the JSON request
+works. Stop the server after previewing. Serving the repository also makes local
+files reachable to local clients; do not bind it to other interfaces or expose
+it through a tunnel. For a public preview, use a copy containing public assets
+only, as described in [operations](docs/OPERATIONS.md#local-preview).
 
-```env
-API_ID=12345678
-API_HASH=your_api_hash
-PHONE_NUMBER=+1234567890
-CHANNELS=-1001111111111,-1002222222222
-```
+## Optional local backend setup
 
-Start the scraper:
+For maintainers who explicitly need local Telegram access:
 
 ```bash
-python backend/telegram_fetcher.py
+python -m pip install -r backend/requirements.txt
+cp .env.example backend/.env
 ```
 
-On the first run, Telegram sends a login code to your account. Type this code when the scraper asks for it.
+In PowerShell, use `Copy-Item .env.example backend/.env` for the copy step. Fill
+in `API_ID`, `API_HASH`, `PHONE_NUMBER`, and comma-separated `CHANNELS`. The root
+template is canonical; `backend/.env.example` is a retained compatibility
+template. Neither contains a session token.
 
-To see the site on your computer, start a local server:
+Run local helpers **from `backend/`** so they share the existing on-disk session:
 
 ```bash
-python -m http.server        # then open http://localhost:8000
+cd backend
+python telegram_fetcher.py
 ```
 
-## ⚙️ Configuration
+The first run may request a Telegram code and 2FA password. These are real account
+and network operations, not verification commands. Normal site updates should
+continue to use Actions. [Configuration and session setup](docs/OPERATIONS.md#configuration)
+documents the full process, including GitHub's five required secrets.
 
-Write all configuration in `backend/.env`. At startup, `backend/config.py` does a check of these values:
+## Repository layout
 
-| Variable       | Description                                              |
-| -------------- | ------------------------------------------------------- |
-| `API_ID`       | Telegram API ID (integer)                               |
-| `API_HASH`     | Telegram API hash                                       |
-| `PHONE_NUMBER` | Account phone in E.164 format (e.g. `+1234567890`)      |
-| `CHANNELS`     | Comma-separated channel/chat IDs (negative integers)    |
-
-To find the channel IDs, run the helper: `python backend/get_channel_info.py`.
-
-The **headless / GitHub Actions** path uses one more variable: `SESSION_STRING`. This is a Telethon
-[StringSession](https://docs.telethon.dev/en/stable/concepts/sessions.html). Do not set it on your
-computer. On your computer, the scraper uses the `.session` file on the disk. For CI, set
-`SESSION_STRING` as a GitHub **secret**. Refer to [Publishing](#-publishing-github-pages) below.
-
-## 📄 Data contract
-
-`data.json` is **generated output** — do not edit it by hand. Any field change must be mirrored in
-both `backend/telegram_fetcher.py` (producer) and `assets/js/script.js` (consumer).
-
-```json
-{
-  "timestamp": "2026-07-05T14:29:31+00:00",
-  "links": [
-    {
-      "url": "https://example.com/stream",
-      "source_channel_id": -1001748820600,
-      "source_channel_name": "Channel Name",
-      "message_text": "Match A vs Match B\n...",
-      "posted_time": "2026-07-05T13:35:11+00:00"
-    }
-  ]
-}
-```
-
-## 🎨 Frontend
-
-The frontend is intentionally simple to host and hack on — three files, no toolchain.
-
-- **Theme:** premium dark (`#0a0a0a` base) with a single electric-blue accent (`#3b82f6`) used
-  sparingly — the live indicator, links, hover glow, the Copy button, and the card accent bar.
-- **Typography:** Plus Jakarta Sans 800 for the hero headline, Space Grotesk for section headings,
-  Inter for body and meta text — loaded in a single `display=swap` request.
-- **Hero:** a cinematic night-cricket photo sits behind the header under a dark gradient overlay,
-  with a solid-color fallback so a failed image load never breaks the layout.
-- **Motion & accessibility:** eased micro-interactions, a staggered card entrance, a pulsing live
-  dot, hover effects that fall back to tap states on touch, and full `prefers-reduced-motion` support.
-
-Editing the card layout means touching `index.html` (`#link-card-template`) + `assets/js/script.js`
-(`createLinkCard`) + `assets/css/style.css` together.
-
-## 📦 Publishing (GitHub Pages)
-
-The site is fully static and can be served straight from the repo.
-
-- **From root:** commit the frontend files + `data.json`, then set
-  *Settings → Pages → Deploy from a branch → `main` / `(root)`*.
-
-Convenience scripts to fetch-and-publish in one step:
-
-- `scripts/legacy/update.bat` — Windows: runs the scraper, then `git add data.json` + commit + push.
-- `scripts/legacy/deploy.sh` — Linux/macOS: legacy manual publisher for root `data.json`.
-
-### Fetching from your phone (GitHub Actions)
-
-`.github/workflows/fetch-links.yml` runs the exact same scraper on GitHub's servers, triggered
-**manually** (`workflow_dispatch`) — so you can update the site from the GitHub mobile app with no
-laptop. It installs deps, runs the fetcher using repository **secrets**, and commits/pushes
-`data.json`. There is intentionally **no schedule** — it only runs when you tap *Run workflow*.
-
-One-time setup:
-
-1. Make a reusable login token. Headless runs cannot do the interactive phone-code step.
-   ```bash
-   cd backend && python generate_session.py
-   ```
-   Copy the `SESSION_STRING` that the script shows.
-
-   > ⚠️ **WARNING: The `SESSION_STRING` gives full access to your Telegram account. Keep it safe, as you keep a password.**
-2. In the repository, go to *Settings → Secrets and variables → Actions*. Add these **Actions secrets**:
-   `API_ID`, `API_HASH`, `PHONE_NUMBER`, `CHANNELS` (the same values as in your `.env`), and `SESSION_STRING`.
-3. Go to *Actions → Fetch Links → Run workflow* (web or mobile app). Push *Run workflow* to start the fetch.
-
-The local `scripts/legacy/update.bat` flow does not change. It does not use `SESSION_STRING`.
-
-> **Note on paths:** all asset and SEO paths are **relative** (no leading `/`) so they resolve on
-> the GitHub Pages project subpath, not just at a domain root.
-
-## 🗂️ Project structure
-
-```
+```text
 SwarnSportsHD/
-├── index.html            # Frontend markup + link-card template + hero + footer
-├── assets/css/style.css             # Styling (dark broadcast theme, electric-blue accent)
-├── assets/js/script.js             # Fetch, render, copy, 5-min auto-refresh
-├── data.json             # Generated output (scraper writes this)
-├── robots.txt            # SEO: allow all + sitemap reference
-├── sitemap.xml           # SEO: canonical URL
-├── site.webmanifest      # PWA manifest (name, icons, dark theme colors)
-├── favicon.ico           # + favicon-16/32, apple-touch-icon, android-chrome icons
-├── .github/workflows/
-│   └── fetch-links.yml   # Manual GitHub Actions fetch (run from web/mobile)
-├── backend/
-│   ├── telegram_fetcher.py   # Scraper: fetch, sport-filter, extract, save
-│   ├── config.py             # Loads + validates backend/.env
-│   ├── get_channel_info.py   # Helper to list channel IDs
-│   ├── generate_session.py   # One-time: make a SESSION_STRING for CI
-│   └── requirements.txt
-├── scripts/legacy/update.bat            # Windows fetch + publish
-└── scripts/legacy/deploy.sh             # Unix fetch + publish to /docs
+├── index.html / data.json          # Pages entry point and generated live output
+├── assets/
+│   ├── css/style.css
+│   ├── js/script.js
+│   └── icons/
+├── backend/                       # Fetcher, configuration, login helpers
+├── .github/
+│   ├── workflows/fetch-links.yml   # Manual acquisition and data publication
+│   └── pull_request_template.md
+├── scripts/
+│   ├── local/                     # Optional fetch-only wrappers
+│   └── legacy/                    # Unused manual publishers
+├── docs/
+│   ├── CONTEXT.md                 # Architecture and data contract
+│   ├── OPERATIONS.md              # Setup, verification, publishing, recovery
+│   └── archive/                   # Retained historical secondary JSON
+├── AGENTS.md / CLAUDE.md           # Agent instructions
+├── CONTRIBUTING.md / SECURITY.md
+└── README.md / LICENSE
 ```
 
-## 🩺 Troubleshooting
+Root `favicon.ico`, `robots.txt`, `sitemap.xml`, and `site.webmanifest` are retained
+at their conventional public paths. The historical JSON in `docs/archive/` is
+not an input to the live site. `data.json` is generated; do not hand-edit it or
+mix link refreshes into source changes.
 
-| Message                                          | Fix                                                             |
-| ------------------------------------------------ | -------------------------------------------------------------- |
-| `Missing required environment variable(s)`       | Ensure all four keys are set in `backend/.env`.                |
-| `API_ID must be a valid integer`                 | Use a plain number, no quotes.                                 |
-| `CHANNELS must be a comma-separated list...`      | Each ID must be an integer, comma-separated.                   |
-| `Malformed JSON in data.json`                     | Re-run the scraper to regenerate the file.                     |
-| Channel fetch errors                             | Confirm your account can access the channel and the ID is right. |
+## Contributing and security
 
-## 🔒 Security
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for focused changes and verification, and
+[SECURITY.md](SECURITY.md) for credential handling, public-data boundaries,
+vulnerability reporting, and historical exposure requiring account-owner review.
+Real `.env` files, Telegram sessions and sidecars, virtual environments, caches,
+and local settings do not belong in commits.
 
-- `backend/.env` and `*.session` files hold live credentials and are **git-ignored** — never commit
-  them. Only `.env.example` belongs in version control.
-- Do not share your `API_HASH`, phone number, or Telethon session file.
-- `SESSION_STRING` is a full-access login token — store it **only** as a GitHub Actions secret,
-  never in `.env.example`, code, or logs. Regenerate it with `generate_session.py` if exposed.
+## Credits and license
 
-## 🤝 Contributing
+Hero photograph: [Zoshua Colah via Unsplash](https://unsplash.com/photos/66X4NgftbrA).
+Fonts: Plus Jakarta Sans, Space Grotesk, and Inter via Google Fonts.
+Code is licensed under [MIT](LICENSE); third-party media retains its own terms.
 
-Issues and pull requests are welcome. Please keep the stack as-is — standard-library Python +
-Telethon on the backend, vanilla JS on the frontend (no npm, bundlers, or CSS frameworks) — and
-keep the `data.json` contract in sync across backend and frontend.
-
-## 🙏 Credits
-
-- Hero photograph by [Zoshua Colah](https://unsplash.com/photos/66X4NgftbrA) via
-  [Unsplash](https://unsplash.com/) (Unsplash License).
-- Fonts: [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans),
-  [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), and
-  [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts.
-
-## ⚖️ Disclaimer
-
-SwarnSportsHD does **not** host, own, or claim rights to any streams or content. All links are
-aggregated from publicly available third-party sources for convenience only. This project is
-intended for personal and educational use. Users are responsible for complying with the terms of
-service of Telegram and any linked services, as well as applicable copyright law.
-
-## 📜 License
-
-MIT — see [LICENSE](LICENSE).
+SwarnSportsHD does not host or own the linked streams. Source configuration and
+use of third-party content must respect applicable rights and service terms.
+The software license does not grant rights to third-party streams or messages.
