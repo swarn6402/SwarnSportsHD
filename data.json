@@ -1,257 +1,201 @@
 {
-  "timestamp": "2026-10-30T08:30:13.408472+00:00",
+  "timestamp": "2026-11-01T06:42:48.898375+00:00",
   "links": [
-    {
-      "url": "https://edge-live.pages.dev/?id=sony3",
-      "source_channel_id": -1003936153089,
-      "source_channel_name": "CRICSINFO Chat",
-      "message_text": "India vs NewZealand - 4th T20 Live\n\nSony Hindi\nhttps://edge-live.pages.dev/?id=sony3\n\nWillow Ads Free\nhttps://edge-live.pages.dev/?id=willow\n\nHindi\nhttps://edge-live.pages.dev/?id=hindi",
-      "posted_time": "2026-10-30T08:20:16+00:00"
-    },
-    {
-      "url": "https://edge-live.pages.dev/?id=willow",
-      "source_channel_id": -1003936153089,
-      "source_channel_name": "CRICSINFO Chat",
-      "message_text": "India vs NewZealand - 4th T20 Live\n\nSony Hindi\nhttps://edge-live.pages.dev/?id=sony3\n\nWillow Ads Free\nhttps://edge-live.pages.dev/?id=willow\n\nHindi\nhttps://edge-live.pages.dev/?id=hindi",
-      "posted_time": "2026-10-30T08:20:16+00:00"
-    },
-    {
-      "url": "https://edge-live.pages.dev/?id=hindi",
-      "source_channel_id": -1003936153089,
-      "source_channel_name": "CRICSINFO Chat",
-      "message_text": "India vs NewZealand - 4th T20 Live\n\nSony Hindi\nhttps://edge-live.pages.dev/?id=sony3\n\nWillow Ads Free\nhttps://edge-live.pages.dev/?id=willow\n\nHindi\nhttps://edge-live.pages.dev/?id=hindi",
-      "posted_time": "2026-10-30T08:20:16+00:00"
-    },
-    {
-      "url": "https://cric-fc.pages.dev/play?id=4249783_ENG&lang=en",
-      "source_channel_id": -1001748820600,
-      "source_channel_name": "L!VE L!NK-CRICSTERS",
-      "message_text": "South Africa Vs Australia - Test\n\nFancode \nhttps://cric-fc.pages.dev/play?id=4249783_ENG&lang=en\n\nFc\nhttps://f1plus.pages.dev/1?id=fc1\n\nOpen in chrome browser",
-      "posted_time": "2026-10-30T08:27:54+00:00"
-    },
-    {
-      "url": "https://f1plus.pages.dev/1?id=fc1",
-      "source_channel_id": -1001748820600,
-      "source_channel_name": "L!VE L!NK-CRICSTERS",
-      "message_text": "South Africa Vs Australia - Test\n\nFancode \nhttps://cric-fc.pages.dev/play?id=4249783_ENG&lang=en\n\nFc\nhttps://f1plus.pages.dev/1?id=fc1\n\nOpen in chrome browser",
-      "posted_time": "2026-10-30T08:27:54+00:00"
-    },
-    {
-      "url": "https://cric-fc.pages.dev/play?id=4250389_ENG&lang=en",
-      "source_channel_id": -1001748820600,
-      "source_channel_name": "L!VE L!NK-CRICSTERS",
-      "message_text": "Brisbane Heat Women vs Sydney Sixers Women \n\nFancode \nhttps://cric-fc.pages.dev/play?id=4250389_ENG&lang=en\n\nOpen in chrome browser",
-      "posted_time": "2026-10-30T08:27:39+00:00"
-    },
-    {
-      "url": "https://ctvlive.pages.dev/sl?id=so3",
-      "source_channel_id": -1001677154368,
-      "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
-    },
-    {
-      "url": "https://ctvlive.pages.dev/sl?id=so5",
-      "source_channel_id": -1001677154368,
-      "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
-    },
     {
       "url": "https://ctvlive.pages.dev/?id=prime_hin",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
+      "message_text": "New Zealand v India 5th T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 1\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "posted_time": "2026-11-01T05:39:50+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=prime_eng",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
+      "message_text": "New Zealand v India 5th T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 1\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "posted_time": "2026-11-01T05:39:50+00:00"
+    },
+    {
+      "url": "https://ctvlive.pages.dev/sl?id=so3",
+      "source_channel_id": -1001677154368,
+      "source_channel_name": "L!v\u00e8 L!nk",
+      "message_text": "New Zealand v India 5th T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 1\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "posted_time": "2026-11-01T05:39:50+00:00"
+    },
+    {
+      "url": "https://ctvlive.pages.dev/sl?id=so5",
+      "source_channel_id": -1001677154368,
+      "source_channel_name": "L!v\u00e8 L!nk",
+      "message_text": "New Zealand v India 5th T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 1\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "posted_time": "2026-11-01T05:39:50+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=tnt1",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
+      "message_text": "New Zealand v India 5th T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 1\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "posted_time": "2026-11-01T05:39:50+00:00"
     },
     {
       "url": "https://ctvlive.pages.dev/?id=willow_n",
       "source_channel_id": -1001677154368,
       "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
-    },
-    {
-      "url": "https://ctvlive.pages.dev/?id=ten3ios",
-      "source_channel_id": -1001677154368,
-      "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
-    },
-    {
-      "url": "https://ctvlive.pages.dev/?id=ten5ios",
-      "source_channel_id": -1001677154368,
-      "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
-    },
-    {
-      "url": "https://ctvlive.pages.dev/?id=iOS",
-      "source_channel_id": -1001677154368,
-      "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "New Zealand v India 4th T20 LIVE\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nTNT Sports 3\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\niOS Hindi\nhttps://ctvlive.pages.dev/?id=ten3ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=ten5ios\n\niOS English\nhttps://ctvlive.pages.dev/?id=iOS\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
-      "posted_time": "2026-10-30T05:20:10+00:00"
-    },
-    {
-      "url": "https://cric-fc.pages.dev/",
-      "source_channel_id": -1001677154368,
-      "source_channel_name": "L!v\u00e8 L!nk",
-      "message_text": "Hong Kong sixes \ud83d\udc47\n\nFancode \nhttps://cric-fc.pages.dev/\n\nOpen in chrome browser",
-      "posted_time": "2026-10-30T03:56:26+00:00"
+      "message_text": "New Zealand v India 5th T20 LIVE\n\nPrime Hindi\nhttps://ctvlive.pages.dev/?id=prime_hin\n\nPrime English\nhttps://ctvlive.pages.dev/?id=prime_eng\n\nSony Ten Hindi\nhttps://ctvlive.pages.dev/sl?id=so3\n\nSony Ten English\nhttps://ctvlive.pages.dev/sl?id=so5\n\nTNT Sports 1\nhttps://ctvlive.pages.dev/?id=tnt1\n\nWillow Worldwide\nhttps://ctvlive.pages.dev/?id=willow_n\n\nOPEN LINKS IN GOOGLE CHROME BROWSER ONLY",
+      "posted_time": "2026-11-01T05:39:50+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=hindi",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=eng",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=fox",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=sony-liv",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=tnt",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=willow",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=tamil",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=telugu",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
     },
     {
       "url": "https://india-vs-nzz.pages.dev/?id=ios",
       "source_channel_id": -1003827118873,
       "source_channel_name": "L!NKz",
-      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nindia-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nindia-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nindia-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nindia-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nindia-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nindia-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nindia-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nindia-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
-      "posted_time": "2026-10-30T04:48:02+00:00"
+      "message_text": "India Vs New Zealand - T20i\n\nH!NDI - HD\nhttps://india-vs-nzz.pages.dev/?id=hindi\n\nENG - HD\nhttps://india-vs-nzz.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://india-vs-nzz.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://india-vs-nzz.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://india-vs-nzz.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://india-vs-nzz.pages.dev/?id=willow\n\nTam\u00edl\nhttps://india-vs-nzz.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://india-vs-nzz.pages.dev/?id=telugu \n\nAll Devices\nhttps://india-vs-nzz.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:50:12+00:00"
+    },
+    {
+      "url": "https://india-vs-nzz.pages.dev/?id=ios-2",
+      "source_channel_id": -1003827118873,
+      "source_channel_name": "L!NKz",
+      "message_text": "Women's Big Bash League 2026\n \nW\u00edllow \nindia-vs-nzz.pages.dev/?id=ios-2\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:35:12+00:00"
+    },
+    {
+      "url": "https://run-machine-d54.pages.dev/fancode",
+      "source_channel_id": -1003827118873,
+      "source_channel_name": "L!NKz",
+      "message_text": "Hong Kong Sixes - 2026\n\nFancode \nrun-machine-d54.pages.dev/fancode\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T01:35:09+00:00"
+    },
+    {
+      "url": "https://india-vs-nzz.pages.dev/?id=eng-2",
+      "source_channel_id": -1003827118873,
+      "source_channel_name": "L!NKz",
+      "message_text": "India A Vs Newzealand A - TEST\n\nENG \nindia-vs-nzz.pages.dev/?id=eng-2\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-10-31T21:50:09+00:00"
+    },
+    {
+      "url": "https://toxifyy.pages.dev/?id=eng-2",
+      "source_channel_id": -1003780183926,
+      "source_channel_name": "BACKUP L!NKZ BY TOXIFY.",
+      "message_text": "India vs New Zealand (Unofficial Test)\nhttps://toxifyy.pages.dev/?id=eng-2",
+      "posted_time": "2026-11-01T02:45:10+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=hindi",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=eng",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=fox",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=sony-liv",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=tnt",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=willow",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=tamil",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=telugu",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     },
     {
       "url": "https://toxifyy.pages.dev/?id=ios",
       "source_channel_id": -1004472397051,
       "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
-    },
-    {
-      "url": "https://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "source_channel_id": -1004472397051,
-      "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
-    },
-    {
-      "url": "https://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "source_channel_id": -1004472397051,
-      "source_channel_name": "L!ve by Toxify",
-      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\nM3u8/ios (Engl!sh)\nhttps://sonydaime.akamaized.net/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8\n\nH!ndi\nhttps://sonydaime.akamaized.net/hls/live/2119921/cricodi_3010/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793386210~acl=/*~id=42217272958275328130935857869656~hmac=42484b6a065f0cbd908b15e184ef6515c7219c0372be6667e93165cf2c891ae8",
-      "posted_time": "2026-10-30T06:58:54+00:00"
+      "message_text": "India Vs New Zealand - 4th T20i International \n\nH!NDI - HD\nhttps://toxifyy.pages.dev/?id=hindi\n\nENG - HD\nhttps://toxifyy.pages.dev/?id=eng\n\nPr\u00edme Engl\u00edsh - 50fps\nhttps://toxifyy.pages.dev/?id=fox\n\nPr\u00edme H!ndi - 50fps\nhttps://toxifyy.pages.dev/?id=sony-liv \n\nTNT Sp\u00f3rts \nhttps://toxifyy.pages.dev/?id=tnt\n\nW\u00edllow\nhttps://toxifyy.pages.dev/?id=willow\n\nTam\u00edl\nhttps://toxifyy.pages.dev/?id=tamil\n\nT\u00e9lugu\nhttps://toxifyy.pages.dev/?id=telugu \n\nAll Devices\nhttps://toxifyy.pages.dev/?id=ios\n\n\u2022 Use in Chrome Browser",
+      "posted_time": "2026-11-01T04:29:23+00:00"
     }
   ]
 }
